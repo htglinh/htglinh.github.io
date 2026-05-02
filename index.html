@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business Analyst Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 900: '#0A1628', 800: '#0F2044', 700: '#1A3260', 600: '#1E3A6E', 500: '#2952A3' },
+          slate: { 600: '#475569', 500: '#64748B', 400: '#94A3B8', 300: '#CBD5E1', 200: '#E2E8F0', 100: '#F1F5F9' },
+          gold: '#C8A96E',
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          body: ['"DM Sans"', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: #F8FAFC; color: #0A1628; overflow-x: hidden; }
+
+  /* ── Nav ── */
+  #navbar {
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+  #navbar.scrolled {
+    background: rgba(10, 22, 40, 0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  }
+  .nav-link {
+    position: relative;
+    color: #CBD5E1;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1.5px;
+    background: #C8A96E;
+    transition: width 0.35s ease;
+  }
+  .nav-link:hover { color: #fff; }
+  .nav-link:hover::after { width: 100%; }
+
+  /* ── Hero ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0A1628 0%, #1A3260 55%, #0F2044 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridDrift 20s linear infinite;
+  }
+  @keyframes gridDrift { from { transform: translateY(0); } to { transform: translateY(60px); } }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.15;
+    animation: float 8s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(200,169,110,0.4);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C8A96E;
+    background: rgba(200,169,110,0.08);
+    animation: fadeSlideDown 0.8s ease 0.2s both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.08;
+    animation: fadeSlideUp 0.9s ease 0.4s both;
+  }
+  .hero-sub { animation: fadeSlideUp 0.9s ease 0.6s both; }
+  .hero-cta { animation: fadeSlideUp 0.9s ease 0.8s both; }
+
+  @keyframes fadeSlideUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeSlideDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 34px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .cta-primary {
+    background: #C8A96E;
+    color: #0A1628;
+  }
+  .cta-primary:hover {
+    background: #d4b87e;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(200,169,110,0.35);
+  }
+  .cta-outline {
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #fff;
+  }
+  .cta-outline:hover {
+    border-color: #C8A96E;
+    color: #C8A96E;
+    transform: translateY(-2px);
+  }
+
+  /* ── Section Titles ── */
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #C8A96E;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    color: #0A1628;
+    line-height: 1.15;
+  }
+  .section-divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, #C8A96E, #1A3260);
+    border-radius: 2px;
+    margin: 16px 0 32px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: linear-gradient(180deg, #C8A96E, #1A3260);
+    transition: height 0.4s ease;
+    border-radius: 2px 0 0 2px;
+  }
+  .card:hover {
+    border-color: #C8A96E;
+    box-shadow: 0 16px 48px rgba(10,22,40,0.1);
+    transform: translateY(-4px);
+  }
+  .card:hover::before { height: 100%; }
+
+  /* ── Tags ── */
+  .tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border: 1px solid #E2E8F0;
+    color: #475569;
+    background: #F8FAFC;
+    transition: all 0.25s;
+  }
+  .tag:hover {
+    border-color: #C8A96E;
+    color: #0A1628;
+    background: rgba(200,169,110,0.08);
+  }
+
+  /* ── Timeline ── */
+  .timeline-line {
+    position: absolute;
+    left: 20px; top: 48px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, #1A3260, rgba(26,50,96,0.1));
+  }
+  .timeline-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1A3260, #2952A3);
+    display: flex; align-items: center; justify-content: center;
+    color: #C8A96E;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(26,50,96,0.3);
+    position: relative; z-index: 1;
+  }
+
+  /* ── Competency Cards ── */
+  .competency-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(10,22,40,0.06);
+    position: absolute;
+    top: 16px; right: 20px;
+    transition: color 0.4s;
+  }
+  .card:hover .competency-num { color: rgba(200,169,110,0.12); }
+
+  /* ── Skill Bars ── */
+  .skill-bar-bg {
+    height: 4px;
+    background: #E2E8F0;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #1A3260, #C8A96E);
+    width: 0;
+    transition: width 1.2s ease;
+  }
+
+  /* ── Cert Cards ── */
+  .cert-card {
+    background: linear-gradient(135deg, #0F2044, #1A3260);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid rgba(200,169,110,0.2);
+    transition: all 0.35s ease;
+    position: relative; overflow: hidden;
+  }
+  .cert-card::after {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(200,169,110,0.08);
+    transition: transform 0.4s ease;
+  }
+  .cert-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(10,22,40,0.2); border-color: rgba(200,169,110,0.5); }
+  .cert-card:hover::after { transform: scale(2.5); }
+
+  /* ── Achievement ── */
+  .achievement-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid #E2E8F0;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+  .achievement-item:hover { border-color: #C8A96E; box-shadow: 0 8px 24px rgba(10,22,40,0.08); transform: translateX(4px); }
+  .achievement-icon { width: 40px; height: 40px; border-radius: 8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; }
+
+  /* ── Stats ── */
+  .stat-card {
+    background: linear-gradient(135deg, #0A1628, #1A3260);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    border: 1px solid rgba(200,169,110,0.15);
+    transition: all 0.35s ease;
+  }
+  .stat-card:hover { border-color: rgba(200,169,110,0.5); transform: translateY(-4px); }
+  .stat-num { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:900; color:#C8A96E; }
+
+  /* ── Footer ── */
+  footer { background: #0A1628; }
+
+  /* ── Scroll Reveal ── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: all 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-32px); transition: all 0.7s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(32px); transition: all 0.7s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* delay helpers */
+  .delay-100 { transition-delay: 0.1s; }
+  .delay-200 { transition-delay: 0.2s; }
+  .delay-300 { transition-delay: 0.3s; }
+  .delay-400 { transition-delay: 0.4s; }
+  .delay-500 { transition-delay: 0.5s; }
+
+  /* ── Mobile Menu ── */
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: block; }
+
+  /* ── Contact Form ── */
+  .contact-input {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+  .contact-input::placeholder { color: rgba(255,255,255,0.35); }
+  .contact-input:focus { border-color: #C8A96E; }
+
+  /* ── Tooltip-like domain badge ── */
+  .domain-badge {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  /* Section alt bg */
+  .bg-alt { background: #F1F5F9; }
+
+  /* Project number */
+  .proj-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: #C8A96E;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-5">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#1A3260,#2952A3);">
+        <span style="color:#C8A96E;font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;">B</span>
+      </div>
+      <span style="color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;">BA Portfolio</span>
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="nav-link">Giới thiệu</a>
+      <a href="#education" class="nav-link">Học vấn</a>
+      <a href="#experience" class="nav-link">Kinh nghiệm</a>
+      <a href="#skills" class="nav-link">Kỹ năng</a>
+      <a href="#achievements" class="nav-link">Thành tựu</a>
+      <a href="#contact" class="nav-link">Liên hệ</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="md:hidden text-white text-xl focus:outline-none" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden mt-4 pb-4 border-t border-white/10">
+    <div class="flex flex-col gap-4 pt-4 px-2">
+      <a href="#about" class="nav-link" onclick="toggleMenu()">Giới thiệu</a>
+      <a href="#education" class="nav-link" onclick="toggleMenu()">Học vấn</a>
+      <a href="#experience" class="nav-link" onclick="toggleMenu()">Kinh nghiệm</a>
+      <a href="#skills" class="nav-link" onclick="toggleMenu()">Kỹ năng</a>
+      <a href="#achievements" class="nav-link" onclick="toggleMenu()">Thành tựu</a>
+      <a href="#contact" class="nav-link" onclick="toggleMenu()">Liên hệ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section id="hero" class="relative flex items-center justify-center px-6">
+  <div class="hero-grid"></div>
+
+  <!-- Decorative orbs -->
+  <div class="hero-orb" style="width:500px;height:500px;background:#2952A3;top:-100px;right:-100px;animation-delay:0s;"></div>
+  <div class="hero-orb" style="width:350px;height:350px;background:#C8A96E;bottom:-80px;left:-80px;animation-delay:3s;"></div>
+  <div class="hero-orb" style="width:200px;height:200px;background:#1A3260;top:40%;left:15%;animation-delay:5s;opacity:0.08;"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto text-center py-32">
+    <div class="hero-badge mb-8">
+      <i class="fas fa-chart-line" style="color:#C8A96E;"></i>
+      Business Analyst &nbsp;·&nbsp; Product Mindset
+    </div>
+
+    <h1 class="hero-title text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6">
+      Phân tích.<br />
+      <span style="color:#C8A96E;">Kết nối.</span><br />
+      Chuyển đổi.
+    </h1>
+
+    <p class="hero-sub text-slate-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="font-weight:300;">
+      Chuyên gia Business Analyst với nền tảng MIS từ UEH — kinh nghiệm thực chiến tại EduTech, AgriTech, E-commerce & Retail. Làm cầu nối giữa <strong class="text-white font-medium">Kinh doanh</strong> và <strong class="text-white font-medium">Công nghệ</strong>.
+    </p>
+
+    <div class="hero-cta flex flex-wrap items-center justify-center gap-4">
+      <a href="#experience" class="cta-btn cta-primary">
+        <i class="fas fa-briefcase text-xs"></i>
+        Xem Dự Án
+      </a>
+      <a href="#contact" class="cta-btn cta-outline">
+        <i class="fas fa-paper-plane text-xs"></i>
+        Liên Hệ Ngay
+      </a>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2" style="animation: float 2.5s ease-in-out infinite;">
+      <a href="#about" class="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors">
+        <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;">Scroll</span>
+        <i class="fas fa-chevron-down text-xs"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
+<div class="bg-navy-900" style="background:#0A1628;">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="stat-card reveal delay-100">
+      <div class="stat-num">4+</div>
+      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;">Lĩnh vực Domain</p>
+    </div>
+    <div class="stat-card reveal delay-200">
+      <div class="stat-num">3.65</div>
+      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;">GPA / 4.0</p>
+    </div>
+    <div class="stat-card reveal delay-300">
+      <div class="stat-num">100%</div>
+      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;">Bao phủ Yêu cầu UAT</p>
+    </div>
+    <div class="stat-card reveal delay-400">
+      <div class="stat-num">1000+</div>
+      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;">Sinh viên Workshop</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+<section id="about" class="py-24 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: Text -->
+      <div class="reveal-left">
+        <p class="section-eyebrow">Tóm Tắt Chuyên Môn</p>
+        <h2 class="section-title text-4xl md:text-5xl mt-2">Về Tôi &<br/><span style="color:#1A3260;">Mục Tiêu</span></h2>
+        <div class="section-divider"></div>
+
+        <div class="space-y-4 text-slate-600 leading-relaxed" style="font-size:0.95rem;">
+          <div class="flex gap-3 items-start">
+            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
+              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
+            </div>
+            <p>Là một <strong class="text-navy-800" style="color:#0F2044;">Business Analyst mang tư duy sản phẩm (Product Mindset)</strong>.</p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
+              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
+            </div>
+            <p>Có nền tảng ngành <strong style="color:#0F2044;">Hệ thống thông tin quản lý (MIS)</strong> tại UEH.</p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
+              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
+            </div>
+            <p>Sở hữu kinh nghiệm thực chiến phân tích và triển khai phần mềm đa lĩnh vực: <strong style="color:#0F2044;">EduTech, E-commerce, Service & Retail, AgriTech</strong>.</p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
+              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
+            </div>
+            <p><strong style="color:#0F2044;">Thế mạnh:</strong> Stakeholder Management (Quản lý các bên liên quan), khả năng thích ứng nhanh, chuyển hóa yêu cầu kinh doanh thành giải pháp công nghệ.</p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
+              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
+            </div>
+            <p><strong style="color:#0F2044;">Thành thạo:</strong> Thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe, và xây dựng tài liệu BA.</p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
+              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
+            </div>
+            <p><strong style="color:#0F2044;">Năng lực Đóng góp:</strong> Vận dụng tư duy sản phẩm và phân tích dữ liệu để định hình, tối ưu, chuyển giao giải pháp IT; làm cầu nối giữa Kinh doanh (Business) và Kỹ thuật (Technology).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Goal Cards -->
+      <div class="space-y-6 reveal-right delay-200">
+        <!-- Short term -->
+        <div class="card p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#1A3260,#2952A3);">
+              <i class="fas fa-rocket text-white"></i>
+            </div>
+            <div>
+              <p class="section-eyebrow" style="font-size:0.65rem;">Ngắn hạn · 12 Tháng</p>
+              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;">Mục Tiêu Gần</h3>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;">Trở thành BA tại Quý công ty, tích lũy kinh nghiệm qua dự án phát triển phần mềm và thăng tiến.</p>
+          <div class="mt-4 pt-4 border-t border-slate-100 flex gap-2">
+            <span class="tag">Software Projects</span>
+            <span class="tag">BA Role</span>
+          </div>
+        </div>
+
+        <!-- Long term -->
+        <div class="card p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#C8A96E,#d4b87e);">
+              <i class="fas fa-crown" style="color:#0A1628;"></i>
+            </div>
+            <div>
+              <p class="section-eyebrow" style="font-size:0.65rem;color:#C8A96E;">Dài hạn · 5 Năm</p>
+              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;">Mục Tiêu Xa</h3>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;">Thăng tiến lên <strong style="color:#0A1628;">Senior BA</strong> hoặc <strong style="color:#0A1628;">Product Manager / Project Manager</strong>.</p>
+          <div class="mt-4 pt-4 border-t border-slate-100 flex gap-2 flex-wrap">
+            <span class="tag">Senior BA</span>
+            <span class="tag">Product Manager</span>
+            <span class="tag">Project Manager</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ EDUCATION ═══════════════════════════════ -->
+<section id="education" class="py-24 px-6 bg-alt">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="section-eyebrow">Học Vấn</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2">Nền Tảng <span style="color:#1A3260;">Học Thuật</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="card p-8 md:p-10 reveal">
+        <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
+          <!-- Logo placeholder -->
+          <div class="w-20 h-20 rounded-2xl flex-shrink-0 flex items-center justify-center text-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);border:2px solid rgba(200,169,110,0.3);">
+            <div>
+              <div style="color:#C8A96E;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;line-height:1;">UEH</div>
+              <div style="color:rgba(200,169,110,0.6);font-size:0.5rem;letter-spacing:0.1em;margin-top:2px;">UNIVERSITY</div>
+            </div>
+          </div>
+
+          <div class="flex-1">
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <div>
+                <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;">Đại học Kinh tế TP.HCM (UEH)</h3>
+                <p class="text-slate-600 mt-1" style="font-size:0.9rem;">Cử nhân ngành <strong style="color:#1A3260;">Hệ thống thông tin quản lý</strong></p>
+                <p class="text-slate-500 mt-0.5" style="font-size:0.85rem;">Chuyên ngành: <strong style="color:#1A3260;">Hoạch định nguồn lực ERP</strong></p>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background:rgba(200,169,110,0.12);border:1px solid rgba(200,169,110,0.3);">
+                  <i class="fas fa-star text-xs" style="color:#C8A96E;"></i>
+                  <span style="color:#C8A96E;font-weight:700;font-size:0.9rem;">GPA 3.65 / 4.0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3 mt-4">
+              <span class="flex items-center gap-2 text-slate-500" style="font-size:0.82rem;">
+                <i class="fas fa-calendar-alt" style="color:#C8A96E;font-size:0.75rem;"></i>
+                10/2022 – 04/2026
+              </span>
+              <span class="flex items-center gap-2 text-slate-500" style="font-size:0.82rem;">
+                <i class="fas fa-map-marker-alt" style="color:#C8A96E;font-size:0.75rem;"></i>
+                TP. Hồ Chí Minh
+              </span>
+            </div>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="tag">Hệ thống thông tin quản lý</span>
+              <span class="tag">ERP</span>
+              <span class="tag">Business Analytics</span>
+              <span class="tag">MIS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ EXPERIENCE ═══════════════════════════════ -->
+<section id="experience" class="py-24 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="section-eyebrow">Kinh Nghiệm & Dự Án</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2">Thực Chiến <span style="color:#1A3260;">& Kết Quả</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="space-y-10">
+
+      <!-- ── Job 1: BAC ── -->
+      <div class="reveal">
+        <div class="relative pl-14">
+          <div class="timeline-line"></div>
+
+          <!-- Dot -->
+          <div class="timeline-dot absolute left-0 top-0">
+            <i class="fas fa-building"></i>
+          </div>
+
+          <!-- Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+            <div>
+              <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;">Business Analyst</h3>
+              <p class="text-slate-600 mt-0.5" style="font-size:0.9rem;">Công ty CP Đào tạo và Tư vấn <strong style="color:#1A3260;">BAC</strong></p>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full self-start sm:self-auto" style="background:#F1F5F9;border:1px solid #E2E8F0;">
+              <i class="fas fa-circle text-green-400" style="font-size:0.5rem;"></i>
+              <span class="text-slate-600" style="font-size:0.8rem;font-weight:500;">03/2025 – Hiện tại</span>
+            </div>
+          </div>
+
+          <!-- Projects Grid -->
+          <div class="grid md:grid-cols-3 gap-5">
+
+            <!-- P01 -->
+            <div class="card p-6 delay-100">
+              <div class="flex items-center justify-between mb-3">
+                <span class="proj-num">PROJECT 01</span>
+                <span class="domain-badge" style="background:rgba(41,82,163,0.1);color:#2952A3;border:1px solid rgba(41,82,163,0.2);">EduTech</span>
+              </div>
+              <h4 class="font-bold text-base mb-1" style="color:#0A1628;">CEB Project</h4>
+              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;">Educational Management System</p>
+              <ul class="space-y-2 text-slate-600" style="font-size:0.83rem;">
+                <li class="flex gap-2 items-start">
+                  <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
+                  Phân tích và mô hình hóa quy trình nghiệp vụ (As-is/To-be) bằng Flowchart.
+                </li>
+                <li class="flex gap-2 items-start">
+                  <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
+                  Điều phối UAT, tối ưu luồng người dùng, giảm thiểu tỷ lệ lỗi sau phát hành.
+                </li>
+              </ul>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="tag" style="font-size:0.66rem;">Flowchart</span>
+                <span class="tag" style="font-size:0.66rem;">As-is/To-be</span>
+                <span class="tag" style="font-size:0.66rem;">UAT</span>
+              </div>
+            </div>
+
+            <!-- P02 -->
+            <div class="card p-6 delay-200">
+              <div class="flex items-center justify-between mb-3">
+                <span class="proj-num">PROJECT 02</span>
+                <span class="domain-badge" style="background:rgba(34,197,94,0.1);color:#16a34a;border:1px solid rgba(34,197,94,0.2);">AgriTech</span>
+              </div>
+              <h4 class="font-bold text-base mb-1" style="color:#0A1628;">WE4Ag</h4>
+              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;">E-learning Platform for Sustainable Agriculture</p>
+              <ul class="space-y-2 text-slate-600" style="font-size:0.83rem;">
+                <li class="flex gap-2 items-start">
+                  <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
+                  Thiết kế Wireframe/Mockup và xây dựng User Flow để tích hợp phân hệ e-learning vào hệ sinh thái Nông nghiệp thông minh MEVI.
+                </li>
+              </ul>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="tag" style="font-size:0.66rem;">Wireframe</span>
+                <span class="tag" style="font-size:0.66rem;">Mockup</span>
+                <span class="tag" style="font-size:0.66rem;">User Flow</span>
+                <span class="tag" style="font-size:0.66rem;">Figma</span>
+              </div>
+            </div>
+
+            <!-- P03 -->
+            <div class="card p-6 delay-300">
+              <div class="flex items-center justify-between mb-3">
+                <span class="proj-num">PROJECT 03</span>
+                <span class="domain-badge" style="background:rgba(251,146,60,0.1);color:#ea580c;border:1px solid rgba(251,146,60,0.2);">Service & Retail</span>
+              </div>
+              <h4 class="font-bold text-base mb-1" style="color:#0A1628;">xuanlanbui.com</h4>
+              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;">Quality Assurance & System Integrity</p>
+              <ul class="space-y-2 text-slate-600" style="font-size:0.83rem;">
+                <li class="flex gap-2 items-start">
+                  <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
+                  Đóng vai trò BA kiêm Tester, xây dựng Test Cases và tổ chức UAT, đảm bảo <strong style="color:#1A3260;">100% độ bao phủ yêu cầu</strong>.
+                </li>
+              </ul>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="tag" style="font-size:0.66rem;">Test Cases</span>
+                <span class="tag" style="font-size:0.66rem;">UAT</span>
+                <span class="tag" style="font-size:0.66rem;">BA + Tester</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Job 2: BI Lead ── -->
+      <div class="reveal delay-200">
+        <div class="relative pl-14">
+          <div class="timeline-dot absolute left-0 top-0">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+
+          <!-- Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+            <div>
+              <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;">Trưởng nhóm Dự án BI</h3>
+              <p class="text-slate-600 mt-0.5" style="font-size:0.9rem;">Phân tích E-commerce cho <strong style="color:#1A3260;">Coupang</strong></p>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full self-start sm:self-auto" style="background:#F1F5F9;border:1px solid #E2E8F0;">
+              <i class="fas fa-calendar" style="color:#C8A96E;font-size:0.65rem;"></i>
+              <span class="text-slate-600" style="font-size:0.8rem;font-weight:500;">12/2024</span>
+            </div>
+          </div>
+
+          <!-- Project 04 -->
+          <div class="card p-6 md:p-8 max-w-2xl">
+            <div class="flex items-center justify-between mb-3">
+              <span class="proj-num">PROJECT 04</span>
+              <span class="domain-badge" style="background:rgba(168,85,247,0.1);color:#9333ea;border:1px solid rgba(168,85,247,0.2);">E-commerce & BI</span>
+            </div>
+            <h4 class="font-bold text-lg mb-1" style="color:#0A1628;">Coupang BI — Data-driven E-commerce Strategy</h4>
+            <ul class="space-y-3 text-slate-600 mt-4" style="font-size:0.88rem;">
+              <li class="flex gap-2 items-start">
+                <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
+                Dẫn dắt đội ngũ phân tích dữ liệu bằng <strong style="color:#0A1628;">Power BI</strong> và <strong style="color:#0A1628;">R</strong> để phân khúc khách hàng.
+              </li>
+              <li class="flex gap-2 items-start">
+                <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
+                Đề xuất chiến lược kinh doanh dựa trên insight dữ liệu nhằm tối ưu hành vi mua sắm.
+              </li>
+            </ul>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="tag">Power BI</span>
+              <span class="tag">R Language</span>
+              <span class="tag">Customer Segmentation</span>
+              <span class="tag">Data-driven Strategy</span>
+              <span class="tag">Team Lead</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CORE COMPETENCIES ═══════════════════════════════ -->
+<section id="competencies" class="py-24 px-6 bg-alt">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="section-eyebrow">Năng Lực Cốt Lõi</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2">Core <span style="color:#1A3260;">Competencies</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- C01 -->
+      <div class="card p-8 relative reveal delay-100">
+        <span class="competency-num">01</span>
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
+          <i class="fas fa-search text-xl" style="color:#C8A96E;"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;font-family:'Playfair Display',serif;">Requirements & Data Analysis</h3>
+        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;">Phân tích Yêu cầu & Dữ liệu</p>
+        <ul class="mt-4 space-y-2 text-slate-600" style="font-size:0.85rem;">
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Khởi tạo dự án, khơi gợi yêu cầu, Gap Analysis.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Định hướng ra quyết định dựa trên dữ liệu (Data-driven).
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Đánh giá và ưu tiên hóa yêu cầu.
+          </li>
+        </ul>
+      </div>
+
+      <!-- C02 -->
+      <div class="card p-8 relative reveal delay-200">
+        <span class="competency-num">02</span>
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
+          <i class="fas fa-pencil-ruler text-xl" style="color:#C8A96E;"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;font-family:'Playfair Display',serif;">Functional Specification & UX Design</h3>
+        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;">Đặc tả Chức năng & Thiết kế UX</p>
+        <ul class="mt-4 space-y-2 text-slate-600" style="font-size:0.85rem;">
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Chuyển hóa bài toán nghiệp vụ thành tài liệu kỹ thuật, soạn thảo tài liệu BA tiêu chuẩn.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Trực quan hóa giải pháp (Wireframe/Mockup).
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Mô hình hóa luồng nghiệp vụ (BPMN/Flowchart).
+          </li>
+        </ul>
+      </div>
+
+      <!-- C03 -->
+      <div class="card p-8 relative reveal delay-300">
+        <span class="competency-num">03</span>
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
+          <i class="fas fa-hands-helping text-xl" style="color:#C8A96E;"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;font-family:'Playfair Display',serif;">Product Support</h3>
+        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;">Hỗ trợ Sản phẩm</p>
+        <ul class="mt-4 space-y-2 text-slate-600" style="font-size:0.85rem;">
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Làm việc trong môi trường Agile, theo dõi vòng đời phát triển tính năng.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Giao tiếp đa nhiệm, lên kịch bản UAT.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Cải tiến sản phẩm liên tục.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SKILLS & TOOLS ═══════════════════════════════ -->
+<section id="skills" class="py-24 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="section-eyebrow">Kỹ Năng & Công Cụ</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2">Skills & <span style="color:#1A3260;">Tools</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- BA Skills -->
+      <div class="card p-6 reveal delay-100">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
+            <i class="fas fa-clipboard-list" style="color:#C8A96E;font-size:0.9rem;"></i>
+          </div>
+          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;">Business Analysis</h3>
+        </div>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Requirements Gathering</span><span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Khảo sát yêu cầu</span><span>88%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Viết tài liệu BRD/SRS</span><span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Mô hình hóa (BPMN/Flowchart)</span><span>87%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="87"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Wireframing (Figma)</span><span>80%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Tools -->
+      <div class="card p-6 reveal delay-200">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
+            <i class="fas fa-tools" style="color:#C8A96E;font-size:0.9rem;"></i>
+          </div>
+          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;">Tech Tools</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-vector-square text-xs" style="color:#C8A96E;"></i>Figma
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-project-diagram text-xs" style="color:#C8A96E;"></i>Draw.io
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-database text-xs" style="color:#C8A96E;"></i>SQL
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-chart-bar text-xs" style="color:#C8A96E;"></i>Power BI
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-cogs text-xs" style="color:#C8A96E;"></i>Microsoft Dynamics AX
+          </span>
+        </div>
+        <div class="mt-6 p-4 rounded-xl" style="background:#F8FAFC;border:1px solid #E2E8F0;">
+          <p class="text-xs text-slate-500 mb-2" style="letter-spacing:0.08em;text-transform:uppercase;font-weight:600;">Highlight</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Thành thạo Figma cho Wireframe & Mockup — Draw.io cho mô hình hóa quy trình — Power BI cho phân tích dữ liệu.</p>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="card p-6 reveal delay-300">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
+            <i class="fas fa-language" style="color:#C8A96E;font-size:0.9rem;"></i>
+          </div>
+          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;">Ngoại Ngữ</h3>
+        </div>
+        <div class="space-y-4">
+          <!-- English -->
+          <div class="p-4 rounded-xl" style="background:linear-gradient(135deg,rgba(41,82,163,0.06),rgba(200,169,110,0.06));border:1px solid rgba(41,82,163,0.12);">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🇬🇧</span>
+              <span class="font-semibold text-sm" style="color:#0A1628;">Tiếng Anh</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+              <i class="fas fa-certificate text-xs" style="color:#C8A96E;"></i>
+              <span style="color:#C8A96E;font-weight:700;font-size:0.82rem;">TOEIC 625</span>
+            </div>
+          </div>
+          <!-- Chinese -->
+          <div class="p-4 rounded-xl" style="background:linear-gradient(135deg,rgba(220,38,38,0.04),rgba(200,169,110,0.06));border:1px solid rgba(220,38,38,0.1);">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🇨🇳</span>
+              <span class="font-semibold text-sm" style="color:#0A1628;">Tiếng Trung</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+              <i class="fas fa-certificate text-xs" style="color:#C8A96E;"></i>
+              <span style="color:#C8A96E;font-weight:700;font-size:0.82rem;">HSK 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="card p-6 reveal delay-400">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
+            <i class="fas fa-users" style="color:#C8A96E;font-size:0.9rem;"></i>
+          </div>
+          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;">Kỹ Năng Mềm</h3>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
+              <i class="fas fa-comments" style="color:#C8A96E;font-size:0.75rem;"></i>
+            </div>
+            <span class="text-slate-700 text-sm font-medium">Giao tiếp</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
+              <i class="fas fa-lightbulb" style="color:#C8A96E;font-size:0.75rem;"></i>
+            </div>
+            <span class="text-slate-700 text-sm font-medium">Giải quyết vấn đề</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
+              <i class="fas fa-user-friends" style="color:#C8A96E;font-size:0.75rem;"></i>
+            </div>
+            <span class="text-slate-700 text-sm font-medium">Làm việc nhóm</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
+              <i class="fas fa-chalkboard-teacher" style="color:#C8A96E;font-size:0.75rem;"></i>
+            </div>
+            <span class="text-slate-700 text-sm font-medium">Thuyết trình</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ ACHIEVEMENTS ═══════════════════════════════ -->
+<section id="achievements" class="py-24 px-6" style="background:#0A1628;">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="section-eyebrow">Chứng Chỉ & Thành Tựu</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2 text-white">Honors & <span style="color:#C8A96E;">Achievements</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+
+      <!-- Certifications -->
+      <div class="reveal delay-100">
+        <h3 class="font-bold text-white mb-5 flex items-center gap-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;">
+          <i class="fas fa-certificate" style="color:#C8A96E;"></i>
+          Chứng Chỉ
+        </h3>
+        <div class="space-y-4">
+          <div class="cert-card">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+                <i class="fas fa-award" style="color:#C8A96E;font-size:0.9rem;"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white" style="font-size:0.9rem;">Business Analysis Basics</h4>
+                <p class="text-slate-400 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> Cấp ngày: 01/04/2025
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+                <i class="fas fa-file-excel" style="color:#C8A96E;font-size:0.9rem;"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white" style="font-size:0.9rem;">Business Analytics with Excel</h4>
+                <p class="text-slate-400 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> Cấp ngày: 31/03/2025
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Awards -->
+      <div class="reveal delay-200">
+        <h3 class="font-bold text-white mb-5 flex items-center gap-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;">
+          <i class="fas fa-trophy" style="color:#C8A96E;"></i>
+          Giải Thưởng AIESEC Vietnam
+        </h3>
+        <div class="space-y-4">
+          <div class="cert-card">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+                <i class="fas fa-medal" style="color:#C8A96E;font-size:0.9rem;"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Top 70 Heading For The Future</h4>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">E-commerce miền Nam 2024</p>
+                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> 01/12/2024
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+                <i class="fas fa-medal" style="color:#C8A96E;font-size:0.9rem;"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Top 16 Heading For The Future</h4>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">Data Analysis miền Nam 2023</p>
+                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> 15/05/2023
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research & Activities -->
+      <div class="reveal delay-300">
+        <h3 class="font-bold text-white mb-5 flex items-center gap-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;">
+          <i class="fas fa-flask" style="color:#C8A96E;"></i>
+          Nghiên Cứu & Hoạt Động
+        </h3>
+        <div class="space-y-4">
+          <div class="cert-card">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+                <i class="fas fa-microscope" style="color:#C8A96E;font-size:0.9rem;"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Giải thưởng NCKH/môn học xuất sắc UEH500</h4>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">Đề tài nghiên cứu khoa học xuất sắc (2023)</p>
+                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> 01/10/2023
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+                <i class="fas fa-users" style="color:#C8A96E;font-size:0.9rem;"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Thành viên CLB Tiếng Anh APPLE (UEH)</h4>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">Tổ chức workshop quy mô <strong style="color:#C8A96E;">&gt;1000 sinh viên</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section id="contact" class="py-24 px-6" style="background:#0F2044;">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="section-eyebrow">Liên Hệ</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2 text-white">Hãy <span style="color:#C8A96E;">Kết Nối</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="text-slate-400 max-w-xl mx-auto" style="font-size:0.95rem;line-height:1.7;">Tôi luôn sẵn sàng lắng nghe về các cơ hội mới. Hãy liên hệ để cùng thảo luận về cách tôi có thể đóng góp cho đội ngũ của bạn.</p>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="grid sm:grid-cols-3 gap-5 mb-12 reveal">
+      <a href="mailto:your.email@example.com" class="cert-card text-center hover:no-underline group">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+          <i class="fas fa-envelope text-xl" style="color:#C8A96E;"></i>
+        </div>
+        <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Email</p>
+        <p class="text-white text-sm font-medium">your.email@example.com</p>
+      </a>
+
+      <a href="https://linkedin.com" target="_blank" class="cert-card text-center hover:no-underline group">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+          <i class="fab fa-linkedin-in text-xl" style="color:#C8A96E;"></i>
+        </div>
+        <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">LinkedIn</p>
+        <p class="text-white text-sm font-medium">linkedin.com/in/yourprofile</p>
+      </a>
+
+      <a href="tel:+84900000000" class="cert-card text-center hover:no-underline group">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
+          <i class="fas fa-phone text-xl" style="color:#C8A96E;"></i>
+        </div>
+        <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Điện Thoại</p>
+        <p class="text-white text-sm font-medium">+84 900 000 000</p>
+      </a>
+    </div>
+
+    <!-- Quick Contact Form -->
+    <div class="reveal delay-200" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px;">
+      <h3 class="text-white font-bold text-xl mb-6" style="font-family:'Playfair Display',serif;">Gửi Tin Nhắn Nhanh</h3>
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2">Họ và Tên</label>
+          <input type="text" class="contact-input" placeholder="Nguyễn Văn A" />
+        </div>
+        <div>
+          <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2">Email</label>
+          <input type="email" class="contact-input" placeholder="email@company.com" />
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2">Tin Nhắn</label>
+        <textarea class="contact-input" rows="4" placeholder="Xin chào, tôi muốn trao đổi về..."></textarea>
+      </div>
+      <button onclick="handleContact()" class="cta-btn cta-primary w-full justify-center" style="border-radius:8px;">
+        <i class="fas fa-paper-plane text-xs"></i>
+        Gửi Tin Nhắn
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer class="py-8 px-6 border-t" style="background:#0A1628;border-color:rgba(255,255,255,0.06);">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#1A3260,#2952A3);">
+        <span style="color:#C8A96E;font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;">B</span>
+      </div>
+      <span class="text-slate-400" style="font-size:0.82rem;">Business Analyst Portfolio</span>
+    </div>
+    <p class="text-slate-600" style="font-size:0.78rem;">© 2025 · Built with precision & purpose</p>
+    <div class="flex gap-4">
+      <a href="#hero" class="text-slate-500 hover:text-gold transition-colors" style="font-size:0.78rem;color:#64748B;" onmouseover="this.style.color='#C8A96E'" onmouseout="this.style.color='#64748B'">↑ Top</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Mobile menu ──
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+
+  // ── Scroll Reveal ──
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ── Skill bars ──
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.card').forEach(c => { if (c.querySelector('.skill-bar-fill')) barObserver.observe(c); });
+
+  // ── Contact handler ──
+  function handleContact() {
+    alert('Cảm ơn! Tin nhắn của bạn đã được ghi nhận. Tôi sẽ phản hồi sớm nhất có thể.');
+  }
+
+  // ── Smooth active nav on scroll ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(l => {
+      l.style.color = l.getAttribute('href') === '#' + current ? '#C8A96E' : '';
+    });
+  });
+</script>
+</body>
+</html>
