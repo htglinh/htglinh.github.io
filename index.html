@@ -34,175 +34,256 @@
   body { font-family: 'DM Sans', sans-serif; background: #F8FAFC; color: #0A1628; overflow-x: hidden; }
 
   /* ── Nav ── */
-  #navbar { transition: all 0.4s ease; background: transparent; }
+  #navbar {
+    transition: all 0.4s ease;
+    background: transparent;
+  }
   #navbar.scrolled {
     background: rgba(10, 22, 40, 0.97);
     backdrop-filter: blur(12px);
     box-shadow: 0 4px 30px rgba(0,0,0,0.3);
   }
   .nav-link {
-    position: relative; color: #CBD5E1;
-    font-size: 0.8rem; letter-spacing: 0.12em;
-    text-transform: uppercase; transition: color 0.3s;
+    position: relative;
+    color: #CBD5E1;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s;
   }
   .nav-link::after {
-    content: ''; position: absolute; bottom: -4px; left: 0;
-    width: 0; height: 1.5px; background: #C8A96E; transition: width 0.35s ease;
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1.5px;
+    background: #C8A96E;
+    transition: width 0.35s ease;
   }
   .nav-link:hover { color: #fff; }
   .nav-link:hover::after { width: 100%; }
-
-  /* ── Language Toggle ── */
-  .lang-toggle {
-    display: inline-flex; align-items: center; gap: 0;
-    border: 1.5px solid rgba(200,169,110,0.5);
-    border-radius: 100px; overflow: hidden;
-    font-size: 0.72rem; font-weight: 700;
-    letter-spacing: 0.1em; cursor: pointer;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    background: rgba(200,169,110,0.06);
-  }
-  .lang-toggle:hover { border-color: #C8A96E; box-shadow: 0 0 14px rgba(200,169,110,0.25); }
-  .lang-toggle span {
-    padding: 5px 13px; color: rgba(255,255,255,0.45);
-    transition: all 0.3s; user-select: none;
-  }
-  .lang-toggle span.active { background: #C8A96E; color: #0A1628; border-radius: 100px; }
-  .lang-toggle .lang-sep { color: rgba(200,169,110,0.35); padding: 0; font-weight: 300; }
 
   /* ── Hero ── */
   #hero {
     min-height: 100vh;
     background: linear-gradient(135deg, #0A1628 0%, #1A3260 55%, #0F2044 100%);
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
   }
   .hero-grid {
     position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(200,169,110,0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba(200,169,110,0.05) 1px, transparent 1px);
-    background-size: 60px 60px; animation: gridDrift 20s linear infinite;
+    background-size: 60px 60px;
+    animation: gridDrift 20s linear infinite;
   }
   @keyframes gridDrift { from { transform: translateY(0); } to { transform: translateY(60px); } }
+
   .hero-orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(90px); opacity: 0.15; animation: float 8s ease-in-out infinite;
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.15;
+    animation: float 8s ease-in-out infinite;
   }
-  @keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.05); } }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    border: 1px solid rgba(200,169,110,0.4); border-radius: 100px;
-    padding: 6px 18px; font-size: 0.75rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: #C8A96E;
-    background: rgba(200,169,110,0.08); animation: fadeSlideDown 0.8s ease 0.2s both;
+    border: 1px solid rgba(200,169,110,0.4);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C8A96E;
+    background: rgba(200,169,110,0.08);
+    animation: fadeSlideDown 0.8s ease 0.2s both;
   }
-  .hero-title { font-family: 'Playfair Display', serif; line-height: 1.08; animation: fadeSlideUp 0.9s ease 0.4s both; }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.08;
+    animation: fadeSlideUp 0.9s ease 0.4s both;
+  }
   .hero-sub { animation: fadeSlideUp 0.9s ease 0.6s both; }
   .hero-cta { animation: fadeSlideUp 0.9s ease 0.8s both; }
+
   @keyframes fadeSlideUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fadeSlideDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
 
   .cta-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 34px; border-radius: 4px; font-size: 0.82rem;
-    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; transition: all 0.3s ease;
+    padding: 14px 34px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
-  .cta-primary { background: #C8A96E; color: #0A1628; }
-  .cta-primary:hover { background: #d4b87e; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(200,169,110,0.35); }
-  .cta-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
-  .cta-outline:hover { border-color: #C8A96E; color: #C8A96E; transform: translateY(-2px); }
+  .cta-primary {
+    background: #C8A96E;
+    color: #0A1628;
+  }
+  .cta-primary:hover {
+    background: #d4b87e;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(200,169,110,0.35);
+  }
+  .cta-outline {
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #fff;
+  }
+  .cta-outline:hover {
+    border-color: #C8A96E;
+    color: #C8A96E;
+    transform: translateY(-2px);
+  }
 
   /* ── Section Titles ── */
-  .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: #C8A96E; font-weight: 600; }
-  .section-title { font-family: 'Playfair Display', serif; color: #0A1628; line-height: 1.15; }
-  .section-divider { width: 48px; height: 3px; background: linear-gradient(90deg, #C8A96E, #1A3260); border-radius: 2px; margin: 16px 0 32px; }
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #C8A96E;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    color: #0A1628;
+    line-height: 1.15;
+  }
+  .section-divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, #C8A96E, #1A3260);
+    border-radius: 2px;
+    margin: 16px 0 32px;
+  }
 
   /* ── Cards ── */
   .card {
-    background: #fff; border: 1px solid #E2E8F0; border-radius: 12px;
-    transition: all 0.35s ease; position: relative; overflow: hidden;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
   }
   .card::before {
-    content: ''; position: absolute; top: 0; left: 0;
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
     width: 3px; height: 0;
     background: linear-gradient(180deg, #C8A96E, #1A3260);
-    transition: height 0.4s ease; border-radius: 2px 0 0 2px;
+    transition: height 0.4s ease;
+    border-radius: 2px 0 0 2px;
   }
-  .card:hover { border-color: #C8A96E; box-shadow: 0 16px 48px rgba(10,22,40,0.1); transform: translateY(-4px); }
+  .card:hover {
+    border-color: #C8A96E;
+    box-shadow: 0 16px 48px rgba(10,22,40,0.1);
+    transform: translateY(-4px);
+  }
   .card:hover::before { height: 100%; }
-
-  /* ── Clickable Project Cards ── */
-  .project-card {
-    cursor: pointer;
-  }
-  .project-card:hover {
-    transform: translateY(-6px) scale(1.015) !important;
-    border-color: #C8A96E !important;
-    box-shadow: 0 20px 56px rgba(10,22,40,0.15) !important;
-  }
-  .project-card:hover::before { height: 100%; }
-  .project-card .click-hint {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 0.68rem; color: rgba(200,169,110,0.7);
-    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
-    margin-top: 12px; transition: color 0.3s;
-  }
-  .project-card:hover .click-hint { color: #C8A96E; }
 
   /* ── Tags ── */
   .tag {
-    display: inline-block; padding: 4px 14px; border-radius: 100px;
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.05em;
-    border: 1px solid #E2E8F0; color: #475569; background: #F8FAFC; transition: all 0.25s;
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border: 1px solid #E2E8F0;
+    color: #475569;
+    background: #F8FAFC;
+    transition: all 0.25s;
   }
-  .tag:hover { border-color: #C8A96E; color: #0A1628; background: rgba(200,169,110,0.08); }
+  .tag:hover {
+    border-color: #C8A96E;
+    color: #0A1628;
+    background: rgba(200,169,110,0.08);
+  }
 
   /* ── Timeline ── */
   .timeline-line {
-    position: absolute; left: 20px; top: 48px; bottom: 0;
-    width: 1px; background: linear-gradient(180deg, #1A3260, rgba(26,50,96,0.1));
+    position: absolute;
+    left: 20px; top: 48px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, #1A3260, rgba(26,50,96,0.1));
   }
   .timeline-dot {
-    width: 40px; height: 40px; border-radius: 50%;
+    width: 40px; height: 40px;
+    border-radius: 50%;
     background: linear-gradient(135deg, #1A3260, #2952A3);
     display: flex; align-items: center; justify-content: center;
-    color: #C8A96E; font-size: 0.85rem; flex-shrink: 0;
-    box-shadow: 0 4px 16px rgba(26,50,96,0.3); position: relative; z-index: 1;
+    color: #C8A96E;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(26,50,96,0.3);
+    position: relative; z-index: 1;
   }
 
   /* ── Competency Cards ── */
   .competency-num {
-    font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900;
-    line-height: 1; color: rgba(10,22,40,0.06); position: absolute; top: 16px; right: 20px; transition: color 0.4s;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(10,22,40,0.06);
+    position: absolute;
+    top: 16px; right: 20px;
+    transition: color 0.4s;
   }
   .card:hover .competency-num { color: rgba(200,169,110,0.12); }
 
   /* ── Skill Bars ── */
-  .skill-bar-bg { height: 4px; background: #E2E8F0; border-radius: 2px; overflow: hidden; }
+  .skill-bar-bg {
+    height: 4px;
+    background: #E2E8F0;
+    border-radius: 2px;
+    overflow: hidden;
+  }
   .skill-bar-fill {
-    height: 100%; border-radius: 2px;
-    background: linear-gradient(90deg, #1A3260, #C8A96E); width: 0; transition: width 1.2s ease;
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #1A3260, #C8A96E);
+    width: 0;
+    transition: width 1.2s ease;
   }
 
   /* ── Cert Cards ── */
   .cert-card {
     background: linear-gradient(135deg, #0F2044, #1A3260);
-    border-radius: 12px; padding: 24px;
+    border-radius: 12px;
+    padding: 24px;
     border: 1px solid rgba(200,169,110,0.2);
-    transition: all 0.35s ease; position: relative; overflow: hidden;
+    transition: all 0.35s ease;
+    position: relative; overflow: hidden;
   }
   .cert-card::after {
-    content: ''; position: absolute; top: -30px; right: -30px;
-    width: 100px; height: 100px; border-radius: 50%;
-    background: rgba(200,169,110,0.08); transition: transform 0.4s ease;
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(200,169,110,0.08);
+    transition: transform 0.4s ease;
   }
   .cert-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(10,22,40,0.2); border-color: rgba(200,169,110,0.5); }
   .cert-card:hover::after { transform: scale(2.5); }
 
   /* ── Achievement ── */
   .achievement-item {
-    display: flex; gap: 16px; align-items: flex-start; padding: 18px;
-    border-radius: 10px; border: 1px solid #E2E8F0; background: #fff; transition: all 0.3s ease;
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid #E2E8F0;
+    background: #fff;
+    transition: all 0.3s ease;
   }
   .achievement-item:hover { border-color: #C8A96E; box-shadow: 0 8px 24px rgba(10,22,40,0.08); transform: translateX(4px); }
   .achievement-icon { width: 40px; height: 40px; border-radius: 8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; }
@@ -210,8 +291,11 @@
   /* ── Stats ── */
   .stat-card {
     background: linear-gradient(135deg, #0A1628, #1A3260);
-    border-radius: 12px; padding: 28px 24px; text-align: center;
-    border: 1px solid rgba(200,169,110,0.15); transition: all 0.35s ease;
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    border: 1px solid rgba(200,169,110,0.15);
+    transition: all 0.35s ease;
   }
   .stat-card:hover { border-color: rgba(200,169,110,0.5); transform: translateY(-4px); }
   .stat-num { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:900; color:#C8A96E; }
@@ -226,6 +310,8 @@
   .reveal-left.visible { opacity: 1; transform: translateX(0); }
   .reveal-right { opacity: 0; transform: translateX(32px); transition: all 0.7s ease; }
   .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* delay helpers */
   .delay-100 { transition-delay: 0.1s; }
   .delay-200 { transition-delay: 0.2s; }
   .delay-300 { transition-delay: 0.3s; }
@@ -238,109 +324,40 @@
 
   /* ── Contact Form ── */
   .contact-input {
-    width: 100%; background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12); border-radius: 8px;
-    padding: 12px 16px; color: #fff;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-    transition: border-color 0.3s; outline: none;
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+    outline: none;
   }
   .contact-input::placeholder { color: rgba(255,255,255,0.35); }
   .contact-input:focus { border-color: #C8A96E; }
 
-  /* ── Domain Badge ── */
+  /* ── Tooltip-like domain badge ── */
   .domain-badge {
-    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 3px 10px; border-radius: 100px; font-weight: 600;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 600;
   }
 
+  /* Section alt bg */
   .bg-alt { background: #F1F5F9; }
-  .proj-num { font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: #C8A96E; font-weight: 700; }
 
-  /* ══════════════════════════════════════════════
-     MODAL STYLES
-  ══════════════════════════════════════════════ */
-  #modal-overlay {
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(10, 22, 40, 0.85);
-    backdrop-filter: blur(8px);
-    display: flex; align-items: center; justify-content: center;
-    padding: 20px;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
-  }
-  #modal-overlay.open { opacity: 1; visibility: visible; }
-  #modal-overlay.open #modal-card { transform: translateY(0) scale(1); opacity: 1; }
-
-  #modal-card {
-    background: #fff; border-radius: 20px;
-    width: 100%; max-width: 760px;
-    max-height: 90vh; overflow-y: auto;
-    position: relative;
-    transform: translateY(28px) scale(0.97); opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-    box-shadow: 0 40px 100px rgba(10,22,40,0.4), 0 0 0 1px rgba(200,169,110,0.2);
-  }
-  /* custom scrollbar */
-  #modal-card::-webkit-scrollbar { width: 5px; }
-  #modal-card::-webkit-scrollbar-track { background: transparent; }
-  #modal-card::-webkit-scrollbar-thumb { background: rgba(200,169,110,0.4); border-radius: 3px; }
-
-  .modal-header {
-    background: linear-gradient(135deg, #0A1628 0%, #1A3260 100%);
-    border-radius: 20px 20px 0 0; padding: 28px 32px;
-    position: relative; overflow: hidden;
-  }
-  .modal-header::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(200,169,110,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200,169,110,0.06) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-  .modal-header-orb {
-    position: absolute; border-radius: 50%; filter: blur(50px); opacity: 0.2;
-  }
-
-  #modal-close-btn {
-    position: absolute; top: 16px; right: 16px; z-index: 10;
-    width: 36px; height: 36px; border-radius: 50%;
-    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-    color: #fff; font-size: 0.85rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.25s; outline: none;
-  }
-  #modal-close-btn:hover { background: rgba(200,169,110,0.3); border-color: #C8A96E; color: #C8A96E; transform: rotate(90deg); }
-
-  .modal-body { padding: 32px; }
-
-  .modal-section-label {
-    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #C8A96E; font-weight: 700; margin-bottom: 12px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .modal-section-label::after {
-    content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,169,110,0.3), transparent);
-  }
-
-  .modal-task-item {
-    display: flex; gap: 12px; align-items: flex-start;
-    padding: 12px 16px; border-radius: 8px; margin-bottom: 8px;
-    background: #F8FAFC; border: 1px solid #E2E8F0;
-    transition: all 0.25s;
-  }
-  .modal-task-item:hover { border-color: rgba(200,169,110,0.4); background: rgba(200,169,110,0.04); }
-
-  .modal-outcome-box {
-    background: linear-gradient(135deg, #0F2044, #1A3260);
-    border-radius: 12px; padding: 20px 24px;
-    border: 1px solid rgba(200,169,110,0.25);
-  }
-
-  .modal-tag {
-    display: inline-flex; align-items: center; gap: 5px;
-    padding: 5px 14px; border-radius: 100px; font-size: 0.72rem;
-    font-weight: 600; letter-spacing: 0.05em;
-    background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.3);
+  /* Project number */
+  .proj-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
     color: #C8A96E;
+    font-weight: 700;
   }
 </style>
 </head>
@@ -357,44 +374,31 @@
       <span style="color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;">BA Portfolio</span>
     </a>
 
-    <!-- Desktop Links + Lang Toggle -->
+    <!-- Desktop Links -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#about" class="nav-link" data-i18n="nav-about">Giới thiệu</a>
-      <a href="#education" class="nav-link" data-i18n="nav-education">Học vấn</a>
-      <a href="#experience" class="nav-link" data-i18n="nav-experience">Kinh nghiệm</a>
-      <a href="#skills" class="nav-link" data-i18n="nav-skills">Kỹ năng</a>
-      <a href="#achievements" class="nav-link" data-i18n="nav-achievements">Thành tựu</a>
-      <a href="#contact" class="nav-link" data-i18n="nav-contact">Liên hệ</a>
-      <!-- Language Toggle -->
-      <button class="lang-toggle" id="lang-toggle-btn" onclick="toggleLanguage()" aria-label="Switch language">
-        <span id="lang-vi-btn" class="active">VI</span>
-        <span class="lang-sep">|</span>
-        <span id="lang-en-btn">EN</span>
-      </button>
+      <a href="#about" class="nav-link">Giới thiệu</a>
+      <a href="#education" class="nav-link">Học vấn</a>
+      <a href="#experience" class="nav-link">Kinh nghiệm</a>
+      <a href="#skills" class="nav-link">Kỹ năng</a>
+      <a href="#achievements" class="nav-link">Thành tựu</a>
+      <a href="#contact" class="nav-link">Liên hệ</a>
     </div>
 
-    <!-- Mobile: lang toggle + hamburger -->
-    <div class="md:hidden flex items-center gap-3">
-      <button class="lang-toggle" id="lang-toggle-mobile" onclick="toggleLanguage()" aria-label="Switch language">
-        <span id="lang-vi-mobile" class="active">VI</span>
-        <span class="lang-sep">|</span>
-        <span id="lang-en-mobile">EN</span>
-      </button>
-      <button id="hamburger" class="text-white text-xl focus:outline-none" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="md:hidden text-white text-xl focus:outline-none" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
   </div>
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="md:hidden mt-4 pb-4 border-t border-white/10">
     <div class="flex flex-col gap-4 pt-4 px-2">
-      <a href="#about" class="nav-link" onclick="toggleMenu()" data-i18n="nav-about">Giới thiệu</a>
-      <a href="#education" class="nav-link" onclick="toggleMenu()" data-i18n="nav-education">Học vấn</a>
-      <a href="#experience" class="nav-link" onclick="toggleMenu()" data-i18n="nav-experience">Kinh nghiệm</a>
-      <a href="#skills" class="nav-link" onclick="toggleMenu()" data-i18n="nav-skills">Kỹ năng</a>
-      <a href="#achievements" class="nav-link" onclick="toggleMenu()" data-i18n="nav-achievements">Thành tựu</a>
-      <a href="#contact" class="nav-link" onclick="toggleMenu()" data-i18n="nav-contact">Liên hệ</a>
+      <a href="#about" class="nav-link" onclick="toggleMenu()">Giới thiệu</a>
+      <a href="#education" class="nav-link" onclick="toggleMenu()">Học vấn</a>
+      <a href="#experience" class="nav-link" onclick="toggleMenu()">Kinh nghiệm</a>
+      <a href="#skills" class="nav-link" onclick="toggleMenu()">Kỹ năng</a>
+      <a href="#achievements" class="nav-link" onclick="toggleMenu()">Thành tựu</a>
+      <a href="#contact" class="nav-link" onclick="toggleMenu()">Liên hệ</a>
     </div>
   </div>
 </nav>
@@ -402,6 +406,8 @@
 <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 <section id="hero" class="relative flex items-center justify-center px-6">
   <div class="hero-grid"></div>
+
+  <!-- Decorative orbs -->
   <div class="hero-orb" style="width:500px;height:500px;background:#2952A3;top:-100px;right:-100px;animation-delay:0s;"></div>
   <div class="hero-orb" style="width:350px;height:350px;background:#C8A96E;bottom:-80px;left:-80px;animation-delay:3s;"></div>
   <div class="hero-orb" style="width:200px;height:200px;background:#1A3260;top:40%;left:15%;animation-delay:5s;opacity:0.08;"></div>
@@ -413,26 +419,27 @@
     </div>
 
     <h1 class="hero-title text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6">
-      <span data-i18n="hero-line1">Phân tích.</span><br />
-      <span style="color:#C8A96E;" data-i18n="hero-line2">Kết nối.</span><br />
-      <span data-i18n="hero-line3">Chuyển đổi.</span>
+      Phân tích.<br />
+      <span style="color:#C8A96E;">Kết nối.</span><br />
+      Chuyển đổi.
     </h1>
 
-    <p class="hero-sub text-slate-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="font-weight:300;" data-i18n-html="hero-sub">
-      Một Business Analyst với nền tảng MIS từ UEH — kinh nghiệm thực chiến tại EduTech, AgriTech, E-commerce & Retail. Làm cầu nối giữa <strong class="text-white font-medium">Kinh doanh</strong> và <strong class="text-white font-medium">Công nghệ</strong>.
+    <p class="hero-sub text-slate-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="font-weight:300;">
+      Chuyên gia Business Analyst với nền tảng MIS từ UEH — kinh nghiệm thực chiến tại EduTech, AgriTech, E-commerce & Retail. Làm cầu nối giữa <strong class="text-white font-medium">Kinh doanh</strong> và <strong class="text-white font-medium">Công nghệ</strong>.
     </p>
 
     <div class="hero-cta flex flex-wrap items-center justify-center gap-4">
       <a href="#experience" class="cta-btn cta-primary">
         <i class="fas fa-briefcase text-xs"></i>
-        <span data-i18n="cta-projects">Xem Dự Án</span>
+        Xem Dự Án
       </a>
       <a href="#contact" class="cta-btn cta-outline">
         <i class="fas fa-paper-plane text-xs"></i>
-        <span data-i18n="cta-contact">Liên Hệ Ngay</span>
+        Liên Hệ Ngay
       </a>
     </div>
 
+    <!-- Scroll Indicator -->
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2" style="animation: float 2.5s ease-in-out infinite;">
       <a href="#about" class="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors">
         <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;">Scroll</span>
@@ -443,11 +450,11 @@
 </section>
 
 <!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
-<div style="background:#0A1628;">
+<div class="bg-navy-900" style="background:#0A1628;">
   <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-6">
     <div class="stat-card reveal delay-100">
       <div class="stat-num">4+</div>
-      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;" data-i18n="stat-domains">Lĩnh vực Domain</p>
+      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;">Lĩnh vực Domain</p>
     </div>
     <div class="stat-card reveal delay-200">
       <div class="stat-num">3.65</div>
@@ -455,11 +462,11 @@
     </div>
     <div class="stat-card reveal delay-300">
       <div class="stat-num">100%</div>
-      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;" data-i18n="stat-uat">Bao phủ Yêu cầu UAT</p>
+      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;">Bao phủ Yêu cầu UAT</p>
     </div>
     <div class="stat-card reveal delay-400">
       <div class="stat-num">1000+</div>
-      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;" data-i18n="stat-students">Sinh viên Workshop</p>
+      <p class="text-slate-400 text-sm mt-1" style="font-size:0.8rem;letter-spacing:0.05em;">Sinh viên Workshop</p>
     </div>
   </div>
 </div>
@@ -468,47 +475,49 @@
 <section id="about" class="py-24 px-6 bg-white">
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-2 gap-16 items-center">
+
       <!-- Left: Text -->
       <div class="reveal-left">
-        <p class="section-eyebrow" data-i18n="about-eyebrow">Tóm Tắt Chuyên Môn</p>
-        <h2 class="section-title text-4xl md:text-5xl mt-2" data-i18n-html="about-title">Về Tôi &<br/><span style="color:#1A3260;">Mục Tiêu</span></h2>
+        <p class="section-eyebrow">Tóm Tắt Chuyên Môn</p>
+        <h2 class="section-title text-4xl md:text-5xl mt-2">Về Tôi &<br/><span style="color:#1A3260;">Mục Tiêu</span></h2>
         <div class="section-divider"></div>
+
         <div class="space-y-4 text-slate-600 leading-relaxed" style="font-size:0.95rem;">
           <div class="flex gap-3 items-start">
             <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
               <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
             </div>
-            <p data-i18n-html="about-p1">Là một <strong class="text-navy-800" style="color:#0F2044;">Business Analyst mang tư duy sản phẩm (Product Mindset)</strong>.</p>
+            <p>Là một <strong class="text-navy-800" style="color:#0F2044;">Business Analyst mang tư duy sản phẩm (Product Mindset)</strong>.</p>
           </div>
           <div class="flex gap-3 items-start">
             <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
               <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
             </div>
-            <p data-i18n-html="about-p2">Có nền tảng ngành <strong style="color:#0F2044;">Hệ thống thông tin quản lý (MIS)</strong> tại UEH.</p>
+            <p>Có nền tảng ngành <strong style="color:#0F2044;">Hệ thống thông tin quản lý (MIS)</strong> tại UEH.</p>
           </div>
           <div class="flex gap-3 items-start">
             <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
               <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
             </div>
-            <p data-i18n-html="about-p3">Sở hữu kinh nghiệm thực chiến phân tích và triển khai phần mềm đa lĩnh vực: <strong style="color:#0F2044;">EduTech, E-commerce, Service & Retail, AgriTech</strong>.</p>
+            <p>Sở hữu kinh nghiệm thực chiến phân tích và triển khai phần mềm đa lĩnh vực: <strong style="color:#0F2044;">EduTech, E-commerce, Service & Retail, AgriTech</strong>.</p>
           </div>
           <div class="flex gap-3 items-start">
             <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
               <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
             </div>
-            <p data-i18n-html="about-p4"><strong style="color:#0F2044;">Thế mạnh:</strong> Stakeholder Management (Quản lý các bên liên quan), khả năng thích ứng nhanh, chuyển hóa yêu cầu kinh doanh thành giải pháp công nghệ.</p>
+            <p><strong style="color:#0F2044;">Thế mạnh:</strong> Stakeholder Management (Quản lý các bên liên quan), khả năng thích ứng nhanh, chuyển hóa yêu cầu kinh doanh thành giải pháp công nghệ.</p>
           </div>
           <div class="flex gap-3 items-start">
             <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
               <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
             </div>
-            <p data-i18n-html="about-p5"><strong style="color:#0F2044;">Thành thạo:</strong> Thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe, và xây dựng tài liệu BA.</p>
+            <p><strong style="color:#0F2044;">Thành thạo:</strong> Thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe, và xây dựng tài liệu BA.</p>
           </div>
           <div class="flex gap-3 items-start">
             <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
               <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
             </div>
-            <p data-i18n-html="about-p6"><strong style="color:#0F2044;">Năng lực Đóng góp:</strong> Vận dụng tư duy sản phẩm và phân tích dữ liệu để định hình, tối ưu, chuyển giao giải pháp IT; làm cầu nối giữa Kinh doanh (Business) và Kỹ thuật (Technology).</p>
+            <p><strong style="color:#0F2044;">Năng lực Đóng góp:</strong> Vận dụng tư duy sản phẩm và phân tích dữ liệu để định hình, tối ưu, chuyển giao giải pháp IT; làm cầu nối giữa Kinh doanh (Business) và Kỹ thuật (Technology).</p>
           </div>
         </div>
       </div>
@@ -522,16 +531,17 @@
               <i class="fas fa-rocket text-white"></i>
             </div>
             <div>
-              <p class="section-eyebrow" style="font-size:0.65rem;" data-i18n="goal-short-eyebrow">Ngắn hạn · 12 Tháng</p>
-              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;" data-i18n="goal-short-title">Mục Tiêu Gần</h3>
+              <p class="section-eyebrow" style="font-size:0.65rem;">Ngắn hạn · 12 Tháng</p>
+              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;">Mục Tiêu Gần</h3>
             </div>
           </div>
-          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;" data-i18n="goal-short-desc">Trở thành BA tại Quý công ty, tích lũy kinh nghiệm qua dự án phát triển phần mềm và thăng tiến.</p>
+          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;">Trở thành BA tại Quý công ty, tích lũy kinh nghiệm qua dự án phát triển phần mềm và thăng tiến.</p>
           <div class="mt-4 pt-4 border-t border-slate-100 flex gap-2">
             <span class="tag">Software Projects</span>
             <span class="tag">BA Role</span>
           </div>
         </div>
+
         <!-- Long term -->
         <div class="card p-8">
           <div class="flex items-center gap-4 mb-4">
@@ -539,11 +549,11 @@
               <i class="fas fa-crown" style="color:#0A1628;"></i>
             </div>
             <div>
-              <p class="section-eyebrow" style="font-size:0.65rem;color:#C8A96E;" data-i18n="goal-long-eyebrow">Dài hạn · 5 Năm</p>
-              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;" data-i18n="goal-long-title">Mục Tiêu Xa</h3>
+              <p class="section-eyebrow" style="font-size:0.65rem;color:#C8A96E;">Dài hạn · 5 Năm</p>
+              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;">Mục Tiêu Xa</h3>
             </div>
           </div>
-          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;" data-i18n-html="goal-long-desc">Thăng tiến lên <strong style="color:#0A1628;">Senior BA</strong> hoặc <strong style="color:#0A1628;">Product Manager / Project Manager</strong>.</p>
+          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;">Thăng tiến lên <strong style="color:#0A1628;">Senior BA</strong> hoặc <strong style="color:#0A1628;">Product Manager / Project Manager</strong>.</p>
           <div class="mt-4 pt-4 border-t border-slate-100 flex gap-2 flex-wrap">
             <span class="tag">Senior BA</span>
             <span class="tag">Product Manager</span>
@@ -559,25 +569,28 @@
 <section id="education" class="py-24 px-6 bg-alt">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <p class="section-eyebrow" data-i18n="edu-eyebrow">Học Vấn</p>
-      <h2 class="section-title text-4xl md:text-5xl mt-2" data-i18n-html="edu-title">Nền Tảng <span style="color:#1A3260;">Học Thuật</span></h2>
+      <p class="section-eyebrow">Học Vấn</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2">Nền Tảng <span style="color:#1A3260;">Học Thuật</span></h2>
       <div class="section-divider mx-auto"></div>
     </div>
+
     <div class="max-w-3xl mx-auto">
       <div class="card p-8 md:p-10 reveal">
         <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
+          <!-- Logo placeholder -->
           <div class="w-20 h-20 rounded-2xl flex-shrink-0 flex items-center justify-center text-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);border:2px solid rgba(200,169,110,0.3);">
             <div>
               <div style="color:#C8A96E;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;line-height:1;">UEH</div>
               <div style="color:rgba(200,169,110,0.6);font-size:0.5rem;letter-spacing:0.1em;margin-top:2px;">UNIVERSITY</div>
             </div>
           </div>
+
           <div class="flex-1">
             <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div>
-                <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;" data-i18n="uni-name">Đại học Kinh tế TP.HCM (UEH)</h3>
-                <p class="text-slate-600 mt-1" style="font-size:0.9rem;" data-i18n-html="uni-major">Cử nhân ngành <strong style="color:#1A3260;">Hệ thống thông tin quản lý</strong></p>
-                <p class="text-slate-500 mt-0.5" style="font-size:0.85rem;" data-i18n-html="uni-spec">Chuyên ngành: <strong style="color:#1A3260;">Hoạch định nguồn lực ERP</strong></p>
+                <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;">Đại học Kinh tế TP.HCM (UEH)</h3>
+                <p class="text-slate-600 mt-1" style="font-size:0.9rem;">Cử nhân ngành <strong style="color:#1A3260;">Hệ thống thông tin quản lý</strong></p>
+                <p class="text-slate-500 mt-0.5" style="font-size:0.85rem;">Chuyên ngành: <strong style="color:#1A3260;">Hoạch định nguồn lực ERP</strong></p>
               </div>
               <div class="text-right flex-shrink-0">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background:rgba(200,169,110,0.12);border:1px solid rgba(200,169,110,0.3);">
@@ -586,6 +599,7 @@
                 </div>
               </div>
             </div>
+
             <div class="flex flex-wrap gap-3 mt-4">
               <span class="flex items-center gap-2 text-slate-500" style="font-size:0.82rem;">
                 <i class="fas fa-calendar-alt" style="color:#C8A96E;font-size:0.75rem;"></i>
@@ -593,11 +607,12 @@
               </span>
               <span class="flex items-center gap-2 text-slate-500" style="font-size:0.82rem;">
                 <i class="fas fa-map-marker-alt" style="color:#C8A96E;font-size:0.75rem;"></i>
-                <span data-i18n="uni-city">TP. Hồ Chí Minh</span>
+                TP. Hồ Chí Minh
               </span>
             </div>
+
             <div class="mt-5 flex flex-wrap gap-2">
-              <span class="tag" data-i18n="tag-mis">Hệ thống thông tin quản lý</span>
+              <span class="tag">Hệ thống thông tin quản lý</span>
               <span class="tag">ERP</span>
               <span class="tag">Business Analytics</span>
               <span class="tag">MIS</span>
@@ -613,25 +628,32 @@
 <section id="experience" class="py-24 px-6 bg-white">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <p class="section-eyebrow" data-i18n="exp-eyebrow">Kinh Nghiệm & Dự Án</p>
-      <h2 class="section-title text-4xl md:text-5xl mt-2" data-i18n-html="exp-title">Thực Chiến <span style="color:#1A3260;">& Kết Quả</span></h2>
+      <p class="section-eyebrow">Kinh Nghiệm & Dự Án</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2">Thực Chiến <span style="color:#1A3260;">& Kết Quả</span></h2>
       <div class="section-divider mx-auto"></div>
     </div>
 
     <div class="space-y-10">
+
       <!-- ── Job 1: BAC ── -->
       <div class="reveal">
         <div class="relative pl-14">
           <div class="timeline-line"></div>
-          <div class="timeline-dot absolute left-0 top-0"><i class="fas fa-building"></i></div>
+
+          <!-- Dot -->
+          <div class="timeline-dot absolute left-0 top-0">
+            <i class="fas fa-building"></i>
+          </div>
+
+          <!-- Header -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
             <div>
               <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;">Business Analyst</h3>
-              <p class="text-slate-600 mt-0.5" style="font-size:0.9rem;" data-i18n-html="job1-company">Công ty CP Đào tạo và Tư vấn <strong style="color:#1A3260;">BAC</strong></p>
+              <p class="text-slate-600 mt-0.5" style="font-size:0.9rem;">Công ty CP Đào tạo và Tư vấn <strong style="color:#1A3260;">BAC</strong></p>
             </div>
             <div class="flex items-center gap-2 px-4 py-2 rounded-full self-start sm:self-auto" style="background:#F1F5F9;border:1px solid #E2E8F0;">
               <i class="fas fa-circle text-green-400" style="font-size:0.5rem;"></i>
-              <span class="text-slate-600" style="font-size:0.8rem;font-weight:500;" data-i18n="job1-period">03/2025 – Hiện tại</span>
+              <span class="text-slate-600" style="font-size:0.8rem;font-weight:500;">03/2025 – Hiện tại</span>
             </div>
           </div>
 
@@ -639,21 +661,21 @@
           <div class="grid md:grid-cols-3 gap-5">
 
             <!-- P01 -->
-            <div class="card project-card p-6 delay-100" onclick="openModal('p01')" role="button" tabindex="0" aria-label="View Project 01 details">
+            <div class="card p-6 delay-100">
               <div class="flex items-center justify-between mb-3">
                 <span class="proj-num">PROJECT 01</span>
                 <span class="domain-badge" style="background:rgba(41,82,163,0.1);color:#2952A3;border:1px solid rgba(41,82,163,0.2);">EduTech</span>
               </div>
               <h4 class="font-bold text-base mb-1" style="color:#0A1628;">CEB Project</h4>
-              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;" data-i18n="p01-sub">Educational Management System</p>
+              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;">Educational Management System</p>
               <ul class="space-y-2 text-slate-600" style="font-size:0.83rem;">
                 <li class="flex gap-2 items-start">
                   <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
-                  <span data-i18n="p01-li1">Phân tích và mô hình hóa quy trình nghiệp vụ (As-is/To-be) bằng Flowchart.</span>
+                  Phân tích và mô hình hóa quy trình nghiệp vụ (As-is/To-be) bằng Flowchart.
                 </li>
                 <li class="flex gap-2 items-start">
                   <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
-                  <span data-i18n="p01-li2">Điều phối UAT, tối ưu luồng người dùng, giảm thiểu tỷ lệ lỗi sau phát hành.</span>
+                  Điều phối UAT, tối ưu luồng người dùng, giảm thiểu tỷ lệ lỗi sau phát hành.
                 </li>
               </ul>
               <div class="mt-4 flex flex-wrap gap-1.5">
@@ -661,21 +683,20 @@
                 <span class="tag" style="font-size:0.66rem;">As-is/To-be</span>
                 <span class="tag" style="font-size:0.66rem;">UAT</span>
               </div>
-              <div class="click-hint"><i class="fas fa-expand-alt" style="font-size:0.6rem;"></i><span data-i18n="modal-click-hint">Nhấn để xem chi tiết</span></div>
             </div>
 
             <!-- P02 -->
-            <div class="card project-card p-6 delay-200" onclick="openModal('p02')" role="button" tabindex="0" aria-label="View Project 02 details">
+            <div class="card p-6 delay-200">
               <div class="flex items-center justify-between mb-3">
                 <span class="proj-num">PROJECT 02</span>
                 <span class="domain-badge" style="background:rgba(34,197,94,0.1);color:#16a34a;border:1px solid rgba(34,197,94,0.2);">AgriTech</span>
               </div>
               <h4 class="font-bold text-base mb-1" style="color:#0A1628;">WE4Ag</h4>
-              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;" data-i18n="p02-sub">E-learning Platform for Sustainable Agriculture</p>
+              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;">E-learning Platform for Sustainable Agriculture</p>
               <ul class="space-y-2 text-slate-600" style="font-size:0.83rem;">
                 <li class="flex gap-2 items-start">
                   <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
-                  <span data-i18n="p02-li1">Thiết kế Wireframe/Mockup và xây dựng User Flow để tích hợp phân hệ e-learning vào hệ sinh thái Nông nghiệp thông minh MEVI.</span>
+                  Thiết kế Wireframe/Mockup và xây dựng User Flow để tích hợp phân hệ e-learning vào hệ sinh thái Nông nghiệp thông minh MEVI.
                 </li>
               </ul>
               <div class="mt-4 flex flex-wrap gap-1.5">
@@ -684,21 +705,20 @@
                 <span class="tag" style="font-size:0.66rem;">User Flow</span>
                 <span class="tag" style="font-size:0.66rem;">Figma</span>
               </div>
-              <div class="click-hint"><i class="fas fa-expand-alt" style="font-size:0.6rem;"></i><span data-i18n="modal-click-hint">Nhấn để xem chi tiết</span></div>
             </div>
 
             <!-- P03 -->
-            <div class="card project-card p-6 delay-300" onclick="openModal('p03')" role="button" tabindex="0" aria-label="View Project 03 details">
+            <div class="card p-6 delay-300">
               <div class="flex items-center justify-between mb-3">
                 <span class="proj-num">PROJECT 03</span>
                 <span class="domain-badge" style="background:rgba(251,146,60,0.1);color:#ea580c;border:1px solid rgba(251,146,60,0.2);">Service & Retail</span>
               </div>
               <h4 class="font-bold text-base mb-1" style="color:#0A1628;">xuanlanbui.com</h4>
-              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;" data-i18n="p03-sub">Quality Assurance & System Integrity</p>
+              <p class="text-slate-500 mb-3" style="font-size:0.78rem;font-weight:500;">Quality Assurance & System Integrity</p>
               <ul class="space-y-2 text-slate-600" style="font-size:0.83rem;">
                 <li class="flex gap-2 items-start">
                   <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
-                  <span data-i18n-html="p03-li1">Đóng vai trò BA kiêm Tester, xây dựng Test Cases và tổ chức UAT, đảm bảo <strong style="color:#1A3260;">100% độ bao phủ yêu cầu</strong>.</span>
+                  Đóng vai trò BA kiêm Tester, xây dựng Test Cases và tổ chức UAT, đảm bảo <strong style="color:#1A3260;">100% độ bao phủ yêu cầu</strong>.
                 </li>
               </ul>
               <div class="mt-4 flex flex-wrap gap-1.5">
@@ -706,7 +726,6 @@
                 <span class="tag" style="font-size:0.66rem;">UAT</span>
                 <span class="tag" style="font-size:0.66rem;">BA + Tester</span>
               </div>
-              <div class="click-hint"><i class="fas fa-expand-alt" style="font-size:0.6rem;"></i><span data-i18n="modal-click-hint">Nhấn để xem chi tiết</span></div>
             </div>
 
           </div>
@@ -716,11 +735,15 @@
       <!-- ── Job 2: BI Lead ── -->
       <div class="reveal delay-200">
         <div class="relative pl-14">
-          <div class="timeline-dot absolute left-0 top-0"><i class="fas fa-chart-bar"></i></div>
+          <div class="timeline-dot absolute left-0 top-0">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+
+          <!-- Header -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
             <div>
-              <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;" data-i18n="job2-title">Trưởng nhóm Dự án BI</h3>
-              <p class="text-slate-600 mt-0.5" style="font-size:0.9rem;" data-i18n-html="job2-company">Phân tích E-commerce cho <strong style="color:#1A3260;">Coupang</strong></p>
+              <h3 class="font-bold text-xl" style="color:#0A1628;font-family:'Playfair Display',serif;">Trưởng nhóm Dự án BI</h3>
+              <p class="text-slate-600 mt-0.5" style="font-size:0.9rem;">Phân tích E-commerce cho <strong style="color:#1A3260;">Coupang</strong></p>
             </div>
             <div class="flex items-center gap-2 px-4 py-2 rounded-full self-start sm:self-auto" style="background:#F1F5F9;border:1px solid #E2E8F0;">
               <i class="fas fa-calendar" style="color:#C8A96E;font-size:0.65rem;"></i>
@@ -729,7 +752,7 @@
           </div>
 
           <!-- Project 04 -->
-          <div class="card project-card p-6 md:p-8 max-w-2xl" onclick="openModal('p04')" role="button" tabindex="0" aria-label="View Project 04 details">
+          <div class="card p-6 md:p-8 max-w-2xl">
             <div class="flex items-center justify-between mb-3">
               <span class="proj-num">PROJECT 04</span>
               <span class="domain-badge" style="background:rgba(168,85,247,0.1);color:#9333ea;border:1px solid rgba(168,85,247,0.2);">E-commerce & BI</span>
@@ -738,11 +761,11 @@
             <ul class="space-y-3 text-slate-600 mt-4" style="font-size:0.88rem;">
               <li class="flex gap-2 items-start">
                 <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
-                <span data-i18n-html="p04-li1">Dẫn dắt đội ngũ phân tích dữ liệu bằng <strong style="color:#0A1628;">Power BI</strong> và <strong style="color:#0A1628;">R</strong> để phân khúc khách hàng.</span>
+                Dẫn dắt đội ngũ phân tích dữ liệu bằng <strong style="color:#0A1628;">Power BI</strong> và <strong style="color:#0A1628;">R</strong> để phân khúc khách hàng.
               </li>
               <li class="flex gap-2 items-start">
                 <i class="fas fa-angle-right mt-1 flex-shrink-0" style="color:#C8A96E;font-size:0.7rem;"></i>
-                <span data-i18n="p04-li2">Đề xuất chiến lược kinh doanh dựa trên insight dữ liệu nhằm tối ưu hành vi mua sắm.</span>
+                Đề xuất chiến lược kinh doanh dựa trên insight dữ liệu nhằm tối ưu hành vi mua sắm.
               </li>
             </ul>
             <div class="mt-5 flex flex-wrap gap-2">
@@ -752,11 +775,11 @@
               <span class="tag">Data-driven Strategy</span>
               <span class="tag">Team Lead</span>
             </div>
-            <div class="click-hint"><i class="fas fa-expand-alt" style="font-size:0.6rem;"></i><span data-i18n="modal-click-hint">Nhấn để xem chi tiết</span></div>
           </div>
 
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -765,11 +788,13 @@
 <section id="competencies" class="py-24 px-6 bg-alt">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <p class="section-eyebrow" data-i18n="comp-eyebrow">Năng Lực Cốt Lõi</p>
+      <p class="section-eyebrow">Năng Lực Cốt Lõi</p>
       <h2 class="section-title text-4xl md:text-5xl mt-2">Core <span style="color:#1A3260;">Competencies</span></h2>
       <div class="section-divider mx-auto"></div>
     </div>
+
     <div class="grid md:grid-cols-3 gap-6">
+
       <!-- C01 -->
       <div class="card p-8 relative reveal delay-100">
         <span class="competency-num">01</span>
@@ -777,13 +802,23 @@
           <i class="fas fa-search text-xl" style="color:#C8A96E;"></i>
         </div>
         <h3 class="font-bold text-lg mb-2" style="color:#0A1628;font-family:'Playfair Display',serif;">Requirements & Data Analysis</h3>
-        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;" data-i18n="c01-sub">Phân tích Yêu cầu & Dữ liệu</p>
+        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;">Phân tích Yêu cầu & Dữ liệu</p>
         <ul class="mt-4 space-y-2 text-slate-600" style="font-size:0.85rem;">
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c01-li1">Khởi tạo dự án, khơi gợi yêu cầu, Gap Analysis.</span></li>
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c01-li2">Định hướng ra quyết định dựa trên dữ liệu (Data-driven).</span></li>
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c01-li3">Đánh giá và ưu tiên hóa yêu cầu.</span></li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Khởi tạo dự án, khơi gợi yêu cầu, Gap Analysis.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Định hướng ra quyết định dựa trên dữ liệu (Data-driven).
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Đánh giá và ưu tiên hóa yêu cầu.
+          </li>
         </ul>
       </div>
+
       <!-- C02 -->
       <div class="card p-8 relative reveal delay-200">
         <span class="competency-num">02</span>
@@ -791,13 +826,23 @@
           <i class="fas fa-pencil-ruler text-xl" style="color:#C8A96E;"></i>
         </div>
         <h3 class="font-bold text-lg mb-2" style="color:#0A1628;font-family:'Playfair Display',serif;">Functional Specification & UX Design</h3>
-        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;" data-i18n="c02-sub">Đặc tả Chức năng & Thiết kế UX</p>
+        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;">Đặc tả Chức năng & Thiết kế UX</p>
         <ul class="mt-4 space-y-2 text-slate-600" style="font-size:0.85rem;">
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c02-li1">Chuyển hóa bài toán nghiệp vụ thành tài liệu kỹ thuật, soạn thảo tài liệu BA tiêu chuẩn.</span></li>
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c02-li2">Trực quan hóa giải pháp (Wireframe/Mockup).</span></li>
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c02-li3">Mô hình hóa luồng nghiệp vụ (BPMN/Flowchart).</span></li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Chuyển hóa bài toán nghiệp vụ thành tài liệu kỹ thuật, soạn thảo tài liệu BA tiêu chuẩn.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Trực quan hóa giải pháp (Wireframe/Mockup).
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Mô hình hóa luồng nghiệp vụ (BPMN/Flowchart).
+          </li>
         </ul>
       </div>
+
       <!-- C03 -->
       <div class="card p-8 relative reveal delay-300">
         <span class="competency-num">03</span>
@@ -805,13 +850,23 @@
           <i class="fas fa-hands-helping text-xl" style="color:#C8A96E;"></i>
         </div>
         <h3 class="font-bold text-lg mb-2" style="color:#0A1628;font-family:'Playfair Display',serif;">Product Support</h3>
-        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;" data-i18n="c03-sub">Hỗ trợ Sản phẩm</p>
+        <p class="text-slate-500 text-sm mb-1" style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:#C8A96E;font-weight:600;">Hỗ trợ Sản phẩm</p>
         <ul class="mt-4 space-y-2 text-slate-600" style="font-size:0.85rem;">
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c03-li1">Làm việc trong môi trường Agile, theo dõi vòng đời phát triển tính năng.</span></li>
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c03-li2">Giao tiếp đa nhiệm, lên kịch bản UAT.</span></li>
-          <li class="flex gap-2 items-start"><i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i><span data-i18n="c03-li3">Cải tiến sản phẩm liên tục.</span></li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Làm việc trong môi trường Agile, theo dõi vòng đời phát triển tính năng.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Giao tiếp đa nhiệm, lên kịch bản UAT.
+          </li>
+          <li class="flex gap-2 items-start">
+            <i class="fas fa-circle mt-1.5 flex-shrink-0" style="color:#C8A96E;font-size:0.35rem;"></i>
+            Cải tiến sản phẩm liên tục.
+          </li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
@@ -820,11 +875,13 @@
 <section id="skills" class="py-24 px-6 bg-white">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <p class="section-eyebrow" data-i18n="skills-eyebrow">Kỹ Năng & Công Cụ</p>
+      <p class="section-eyebrow">Kỹ Năng & Công Cụ</p>
       <h2 class="section-title text-4xl md:text-5xl mt-2">Skills & <span style="color:#1A3260;">Tools</span></h2>
       <div class="section-divider mx-auto"></div>
     </div>
+
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
       <!-- BA Skills -->
       <div class="card p-6 reveal delay-100">
         <div class="flex items-center gap-3 mb-5">
@@ -839,15 +896,15 @@
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
           </div>
           <div>
-            <div class="flex justify-between text-xs text-slate-500 mb-1"><span data-i18n="skill-req-elicit">Khảo sát yêu cầu</span><span>88%</span></div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Khảo sát yêu cầu</span><span>88%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
           </div>
           <div>
-            <div class="flex justify-between text-xs text-slate-500 mb-1"><span data-i18n="skill-brd">Viết tài liệu BRD/SRS</span><span>85%</span></div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Viết tài liệu BRD/SRS</span><span>85%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
           </div>
           <div>
-            <div class="flex justify-between text-xs text-slate-500 mb-1"><span data-i18n="skill-modeling">Mô hình hóa (BPMN/Flowchart)</span><span>87%</span></div>
+            <div class="flex justify-between text-xs text-slate-500 mb-1"><span>Mô hình hóa (BPMN/Flowchart)</span><span>87%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="87"></div></div>
           </div>
           <div>
@@ -866,15 +923,25 @@
           <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;">Tech Tools</h3>
         </div>
         <div class="flex flex-wrap gap-2">
-          <span class="tag flex items-center gap-1.5"><i class="fas fa-vector-square text-xs" style="color:#C8A96E;"></i>Figma</span>
-          <span class="tag flex items-center gap-1.5"><i class="fas fa-project-diagram text-xs" style="color:#C8A96E;"></i>Draw.io</span>
-          <span class="tag flex items-center gap-1.5"><i class="fas fa-database text-xs" style="color:#C8A96E;"></i>SQL</span>
-          <span class="tag flex items-center gap-1.5"><i class="fas fa-chart-bar text-xs" style="color:#C8A96E;"></i>Power BI</span>
-          <span class="tag flex items-center gap-1.5"><i class="fas fa-cogs text-xs" style="color:#C8A96E;"></i>Microsoft Dynamics AX</span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-vector-square text-xs" style="color:#C8A96E;"></i>Figma
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-project-diagram text-xs" style="color:#C8A96E;"></i>Draw.io
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-database text-xs" style="color:#C8A96E;"></i>SQL
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-chart-bar text-xs" style="color:#C8A96E;"></i>Power BI
+          </span>
+          <span class="tag flex items-center gap-1.5">
+            <i class="fas fa-cogs text-xs" style="color:#C8A96E;"></i>Microsoft Dynamics AX
+          </span>
         </div>
         <div class="mt-6 p-4 rounded-xl" style="background:#F8FAFC;border:1px solid #E2E8F0;">
           <p class="text-xs text-slate-500 mb-2" style="letter-spacing:0.08em;text-transform:uppercase;font-weight:600;">Highlight</p>
-          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="tools-highlight">Thành thạo Figma cho Wireframe & Mockup — Draw.io cho mô hình hóa quy trình — Power BI cho phân tích dữ liệu.</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Thành thạo Figma cho Wireframe & Mockup — Draw.io cho mô hình hóa quy trình — Power BI cho phân tích dữ liệu.</p>
         </div>
       </div>
 
@@ -884,23 +951,25 @@
           <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
             <i class="fas fa-language" style="color:#C8A96E;font-size:0.9rem;"></i>
           </div>
-          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;" data-i18n="lang-section-title">Ngoại Ngữ</h3>
+          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;">Ngoại Ngữ</h3>
         </div>
         <div class="space-y-4">
+          <!-- English -->
           <div class="p-4 rounded-xl" style="background:linear-gradient(135deg,rgba(41,82,163,0.06),rgba(200,169,110,0.06));border:1px solid rgba(41,82,163,0.12);">
             <div class="flex items-center gap-2 mb-2">
               <span class="text-lg">🇬🇧</span>
-              <span class="font-semibold text-sm" style="color:#0A1628;" data-i18n="lang-en-label">Tiếng Anh</span>
+              <span class="font-semibold text-sm" style="color:#0A1628;">Tiếng Anh</span>
             </div>
             <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
               <i class="fas fa-certificate text-xs" style="color:#C8A96E;"></i>
               <span style="color:#C8A96E;font-weight:700;font-size:0.82rem;">TOEIC 625</span>
             </div>
           </div>
+          <!-- Chinese -->
           <div class="p-4 rounded-xl" style="background:linear-gradient(135deg,rgba(220,38,38,0.04),rgba(200,169,110,0.06));border:1px solid rgba(220,38,38,0.1);">
             <div class="flex items-center gap-2 mb-2">
               <span class="text-lg">🇨🇳</span>
-              <span class="font-semibold text-sm" style="color:#0A1628;" data-i18n="lang-cn-label">Tiếng Trung</span>
+              <span class="font-semibold text-sm" style="color:#0A1628;">Tiếng Trung</span>
             </div>
             <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
               <i class="fas fa-certificate text-xs" style="color:#C8A96E;"></i>
@@ -916,35 +985,36 @@
           <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#0F2044,#1A3260);">
             <i class="fas fa-users" style="color:#C8A96E;font-size:0.9rem;"></i>
           </div>
-          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;" data-i18n="soft-skills-title">Kỹ Năng Mềm</h3>
+          <h3 class="font-bold" style="color:#0A1628;font-size:0.95rem;">Kỹ Năng Mềm</h3>
         </div>
         <div class="space-y-3">
           <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
             <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
               <i class="fas fa-comments" style="color:#C8A96E;font-size:0.75rem;"></i>
             </div>
-            <span class="text-slate-700 text-sm font-medium" data-i18n="soft-communication">Giao tiếp</span>
+            <span class="text-slate-700 text-sm font-medium">Giao tiếp</span>
           </div>
           <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
             <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
               <i class="fas fa-lightbulb" style="color:#C8A96E;font-size:0.75rem;"></i>
             </div>
-            <span class="text-slate-700 text-sm font-medium" data-i18n="soft-problem">Giải quyết vấn đề</span>
+            <span class="text-slate-700 text-sm font-medium">Giải quyết vấn đề</span>
           </div>
           <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
             <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
               <i class="fas fa-user-friends" style="color:#C8A96E;font-size:0.75rem;"></i>
             </div>
-            <span class="text-slate-700 text-sm font-medium" data-i18n="soft-teamwork">Làm việc nhóm</span>
+            <span class="text-slate-700 text-sm font-medium">Làm việc nhóm</span>
           </div>
           <div class="flex items-center gap-3 p-3 rounded-lg" style="background:#F8FAFC;border:1px solid #E2E8F0;">
             <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(200,169,110,0.12);">
               <i class="fas fa-chalkboard-teacher" style="color:#C8A96E;font-size:0.75rem;"></i>
             </div>
-            <span class="text-slate-700 text-sm font-medium" data-i18n="soft-presentation">Thuyết trình</span>
+            <span class="text-slate-700 text-sm font-medium">Thuyết trình</span>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -953,16 +1023,18 @@
 <section id="achievements" class="py-24 px-6" style="background:#0A1628;">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <p class="section-eyebrow" data-i18n="ach-eyebrow">Chứng Chỉ & Thành Tựu</p>
+      <p class="section-eyebrow">Chứng Chỉ & Thành Tựu</p>
       <h2 class="section-title text-4xl md:text-5xl mt-2 text-white">Honors & <span style="color:#C8A96E;">Achievements</span></h2>
       <div class="section-divider mx-auto"></div>
     </div>
+
     <div class="grid lg:grid-cols-3 gap-8">
+
       <!-- Certifications -->
       <div class="reveal delay-100">
         <h3 class="font-bold text-white mb-5 flex items-center gap-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;">
           <i class="fas fa-certificate" style="color:#C8A96E;"></i>
-          <span data-i18n="cert-header">Chứng Chỉ</span>
+          Chứng Chỉ
         </h3>
         <div class="space-y-4">
           <div class="cert-card">
@@ -973,11 +1045,12 @@
               <div>
                 <h4 class="font-semibold text-white" style="font-size:0.9rem;">Business Analysis Basics</h4>
                 <p class="text-slate-400 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
-                  <i class="fas fa-calendar text-xs"></i> <span data-i18n="cert1-date">Cấp ngày: 01/04/2025</span>
+                  <i class="fas fa-calendar text-xs"></i> Cấp ngày: 01/04/2025
                 </p>
               </div>
             </div>
           </div>
+
           <div class="cert-card">
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
@@ -986,7 +1059,7 @@
               <div>
                 <h4 class="font-semibold text-white" style="font-size:0.9rem;">Business Analytics with Excel</h4>
                 <p class="text-slate-400 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
-                  <i class="fas fa-calendar text-xs"></i> <span data-i18n="cert2-date">Cấp ngày: 31/03/2025</span>
+                  <i class="fas fa-calendar text-xs"></i> Cấp ngày: 31/03/2025
                 </p>
               </div>
             </div>
@@ -998,7 +1071,7 @@
       <div class="reveal delay-200">
         <h3 class="font-bold text-white mb-5 flex items-center gap-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;">
           <i class="fas fa-trophy" style="color:#C8A96E;"></i>
-          <span data-i18n="awards-header">Giải Thưởng AIESEC Vietnam</span>
+          Giải Thưởng AIESEC Vietnam
         </h3>
         <div class="space-y-4">
           <div class="cert-card">
@@ -1008,11 +1081,14 @@
               </div>
               <div>
                 <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Top 70 Heading For The Future</h4>
-                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;" data-i18n="award1-sub">E-commerce miền Nam 2024</p>
-                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;"><i class="fas fa-calendar text-xs"></i> 01/12/2024</p>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">E-commerce miền Nam 2024</p>
+                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> 01/12/2024
+                </p>
               </div>
             </div>
           </div>
+
           <div class="cert-card">
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
@@ -1020,8 +1096,10 @@
               </div>
               <div>
                 <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Top 16 Heading For The Future</h4>
-                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;" data-i18n="award2-sub">Data Analysis miền Nam 2023</p>
-                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;"><i class="fas fa-calendar text-xs"></i> 15/05/2023</p>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">Data Analysis miền Nam 2023</p>
+                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> 15/05/2023
+                </p>
               </div>
             </div>
           </div>
@@ -1032,7 +1110,7 @@
       <div class="reveal delay-300">
         <h3 class="font-bold text-white mb-5 flex items-center gap-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;">
           <i class="fas fa-flask" style="color:#C8A96E;"></i>
-          <span data-i18n="research-header">Nghiên Cứu & Hoạt Động</span>
+          Nghiên Cứu & Hoạt Động
         </h3>
         <div class="space-y-4">
           <div class="cert-card">
@@ -1041,25 +1119,29 @@
                 <i class="fas fa-microscope" style="color:#C8A96E;font-size:0.9rem;"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;" data-i18n="research1-title">Giải thưởng NCKH/môn học xuất sắc UEH500</h4>
-                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;" data-i18n="research1-sub">Đề tài nghiên cứu khoa học xuất sắc (2023)</p>
-                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;"><i class="fas fa-calendar text-xs"></i> 01/10/2023</p>
+                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Giải thưởng NCKH/môn học xuất sắc UEH500</h4>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">Đề tài nghiên cứu khoa học xuất sắc (2023)</p>
+                <p class="text-slate-500 mt-0.5 flex items-center gap-1" style="font-size:0.75rem;">
+                  <i class="fas fa-calendar text-xs"></i> 01/10/2023
+                </p>
               </div>
             </div>
           </div>
+
           <div class="cert-card">
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
                 <i class="fas fa-users" style="color:#C8A96E;font-size:0.9rem;"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;" data-i18n="research2-title">Thành viên CLB Tiếng Anh APPLE (UEH)</h4>
-                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;" data-i18n-html="research2-sub">Tổ chức workshop quy mô <strong style="color:#C8A96E;">&gt;1000 sinh viên</strong>.</p>
+                <h4 class="font-semibold text-white leading-snug" style="font-size:0.9rem;">Thành viên CLB Tiếng Anh APPLE (UEH)</h4>
+                <p class="text-slate-400 mt-0.5" style="font-size:0.78rem;">Tổ chức workshop quy mô <strong style="color:#C8A96E;">&gt;1000 sinh viên</strong>.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1068,42 +1150,46 @@
 <section id="contact" class="py-24 px-6" style="background:#0F2044;">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <p class="section-eyebrow" data-i18n="contact-eyebrow">Liên Hệ</p>
-      <h2 class="section-title text-4xl md:text-5xl mt-2 text-white" data-i18n-html="contact-title">Hãy <span style="color:#C8A96E;">Kết Nối</span></h2>
+      <p class="section-eyebrow">Liên Hệ</p>
+      <h2 class="section-title text-4xl md:text-5xl mt-2 text-white">Hãy <span style="color:#C8A96E;">Kết Nối</span></h2>
       <div class="section-divider mx-auto"></div>
-      <p class="text-slate-400 max-w-xl mx-auto" style="font-size:0.95rem;line-height:1.7;" data-i18n="contact-desc">Tôi luôn sẵn sàng lắng nghe về các cơ hội mới. Hãy liên hệ để cùng thảo luận về cách tôi có thể đóng góp cho đội ngũ của bạn.</p>
+      <p class="text-slate-400 max-w-xl mx-auto" style="font-size:0.95rem;line-height:1.7;">Tôi luôn sẵn sàng lắng nghe về các cơ hội mới. Hãy liên hệ để cùng thảo luận về cách tôi có thể đóng góp cho đội ngũ của bạn.</p>
     </div>
 
+    <!-- Contact Cards -->
     <div class="grid sm:grid-cols-3 gap-5 mb-12 reveal">
-      <a href="mailto:huynhtranggialinh.work@gmail.com" class="cert-card text-center hover:no-underline group">
+      <a href="mailto:your.email@example.com" class="cert-card text-center hover:no-underline group">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
           <i class="fas fa-envelope text-xl" style="color:#C8A96E;"></i>
         </div>
         <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Email</p>
-        <p class="text-white text-sm font-medium">huynhtranggialinh.work@gmail.com</p>
+        <p class="text-white text-sm font-medium">your.email@example.com</p>
       </a>
-      <a href="https://www.linkedin.com/in/linhhuynhtranggia/" target="_blank" class="cert-card text-center hover:no-underline group">
+
+      <a href="https://linkedin.com" target="_blank" class="cert-card text-center hover:no-underline group">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
           <i class="fab fa-linkedin-in text-xl" style="color:#C8A96E;"></i>
         </div>
         <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">LinkedIn</p>
-        <p class="text-white text-sm font-medium" style="word-break:break-all;">linkedin.com/in/linhhuynhtranggia</p>
+        <p class="text-white text-sm font-medium">linkedin.com/in/yourprofile</p>
       </a>
-      <a href="tel:(+84)845979383" class="cert-card text-center hover:no-underline group">
+
+      <a href="tel:+84900000000" class="cert-card text-center hover:no-underline group">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110" style="background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);">
           <i class="fas fa-phone text-xl" style="color:#C8A96E;"></i>
         </div>
-        <p class="text-slate-400 text-xs uppercase tracking-widest mb-1" data-i18n="contact-phone-label">Điện Thoại</p>
-        <p class="text-white text-sm font-medium">+84 845 979 383</p>
+        <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Điện Thoại</p>
+        <p class="text-white text-sm font-medium">+84 900 000 000</p>
       </a>
     </div>
 
+    <!-- Quick Contact Form -->
     <div class="reveal delay-200" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px;">
-      <h3 class="text-white font-bold text-xl mb-6" style="font-family:'Playfair Display',serif;" data-i18n="contact-form-title">Gửi Tin Nhắn Nhanh</h3>
+      <h3 class="text-white font-bold text-xl mb-6" style="font-family:'Playfair Display',serif;">Gửi Tin Nhắn Nhanh</h3>
       <div class="grid sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2" data-i18n="form-name-label">Họ và Tên</label>
-          <input type="text" id="form-name" class="contact-input" data-i18n-placeholder="form-name-placeholder" placeholder="Nguyễn Văn A" />
+          <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2">Họ và Tên</label>
+          <input type="text" class="contact-input" placeholder="Nguyễn Văn A" />
         </div>
         <div>
           <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2">Email</label>
@@ -1111,14 +1197,15 @@
         </div>
       </div>
       <div class="mb-4">
-        <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2" data-i18n="form-message-label">Tin Nhắn</label>
-        <textarea id="form-message" class="contact-input" rows="4" data-i18n-placeholder="form-message-placeholder" placeholder="Xin chào, tôi muốn trao đổi về..."></textarea>
+        <label class="block text-slate-400 text-xs uppercase tracking-widest mb-2">Tin Nhắn</label>
+        <textarea class="contact-input" rows="4" placeholder="Xin chào, tôi muốn trao đổi về..."></textarea>
       </div>
       <button onclick="handleContact()" class="cta-btn cta-primary w-full justify-center" style="border-radius:8px;">
         <i class="fas fa-paper-plane text-xs"></i>
-        <span data-i18n="form-submit">Gửi Tin Nhắn</span>
+        Gửi Tin Nhắn
       </button>
     </div>
+
   </div>
 </section>
 
@@ -1138,523 +1225,62 @@
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PROJECT MODAL OVERLAY
-═══════════════════════════════════════════════════════════════ -->
-<div id="modal-overlay" aria-modal="true" role="dialog" aria-labelledby="modal-proj-title">
-  <div id="modal-card">
-    <!-- Modal Header -->
-    <div class="modal-header">
-      <div class="modal-header-orb" style="width:260px;height:260px;background:#2952A3;top:-80px;right:-60px;"></div>
-      <div class="modal-header-orb" style="width:160px;height:160px;background:#C8A96E;bottom:-60px;left:-40px;"></div>
-
-      <button id="modal-close-btn" onclick="closeModal()" aria-label="Close modal">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <div class="relative z-10">
-        <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
-          <span id="modal-proj-num" class="proj-num" style="color:#C8A96E;font-size:0.75rem;letter-spacing:0.15em;"></span>
-          <span id="modal-domain-badge" class="domain-badge"></span>
-        </div>
-        <h2 id="modal-proj-title" class="text-white font-bold" style="font-family:'Playfair Display',serif;font-size:1.6rem;line-height:1.2;margin-bottom:6px;"></h2>
-        <p id="modal-proj-subtitle" class="text-slate-400" style="font-size:0.88rem;"></p>
-      </div>
-    </div>
-
-    <!-- Modal Body -->
-    <div class="modal-body">
-      <!-- Project image -->
-      <img id="modal-img" src="" alt="Project Detail" class="w-full rounded-xl mb-6" style="object-fit:cover;height:220px;border:1px solid #E2E8F0;" />
-
-      <!-- Overview -->
-      <div class="mb-6">
-        <p class="modal-section-label" id="modal-desc-label">Mô tả dự án</p>
-        <p id="modal-description" class="text-slate-600 leading-relaxed" style="font-size:0.93rem;"></p>
-      </div>
-
-      <!-- Tasks -->
-      <div class="mb-6">
-        <p class="modal-section-label" id="modal-tasks-label">Nhiệm vụ thực hiện</p>
-        <div id="modal-tasks"></div>
-      </div>
-
-      <!-- Outcome -->
-      <div class="mb-6">
-        <p class="modal-section-label" id="modal-outcome-label">Kết quả đạt được</p>
-        <div class="modal-outcome-box">
-          <div class="flex gap-3 items-start">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(200,169,110,0.2);">
-              <i class="fas fa-trophy text-xs" style="color:#C8A96E;"></i>
-            </div>
-            <p id="modal-outcome" class="text-slate-300 leading-relaxed" style="font-size:0.9rem;"></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tags -->
-      <div>
-        <div id="modal-tags" class="flex flex-wrap gap-2"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
 <script>
-/* ══════════════════════════════════════════
-   TRANSLATIONS DICTIONARY
-══════════════════════════════════════════ */
-const translations = {
-  vi: {
-    'nav-about': 'Giới thiệu', 'nav-education': 'Học vấn', 'nav-experience': 'Kinh nghiệm',
-    'nav-skills': 'Kỹ năng', 'nav-achievements': 'Thành tựu', 'nav-contact': 'Liên hệ',
-    'hero-line1': 'Phân tích.', 'hero-line2': 'Kết nối.', 'hero-line3': 'Chuyển đổi.',
-    'hero-sub': 'Một Business Analyst với nền tảng MIS từ UEH — kinh nghiệm thực chiến tại EduTech, AgriTech, E-commerce & Retail. Làm cầu nối giữa <strong class="text-white font-medium">Kinh doanh</strong> và <strong class="text-white font-medium">Công nghệ</strong>.',
-    'cta-projects': 'Xem Dự Án', 'cta-contact': 'Liên Hệ Ngay',
-    'stat-domains': 'Lĩnh vực Domain', 'stat-uat': 'Bao phủ Yêu cầu UAT', 'stat-students': 'Sinh viên Workshop',
-    'about-eyebrow': 'Tóm Tắt Chuyên Môn',
-    'about-title': 'Về Tôi &<br/><span style="color:#1A3260;">Mục Tiêu</span>',
-    'about-p1': 'Là một <strong style="color:#0F2044;">Business Analyst mang tư duy sản phẩm (Product Mindset)</strong>.',
-    'about-p2': 'Có nền tảng ngành <strong style="color:#0F2044;">Hệ thống thông tin quản lý (MIS)</strong> tại UEH.',
-    'about-p3': 'Sở hữu kinh nghiệm thực chiến phân tích và triển khai phần mềm đa lĩnh vực: <strong style="color:#0F2044;">EduTech, E-commerce, Service & Retail, AgriTech</strong>.',
-    'about-p4': '<strong style="color:#0F2044;">Thế mạnh:</strong> Stakeholder Management (Quản lý các bên liên quan), khả năng thích ứng nhanh, chuyển hóa yêu cầu kinh doanh thành giải pháp công nghệ.',
-    'about-p5': '<strong style="color:#0F2044;">Thành thạo:</strong> Thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe, và xây dựng tài liệu BA.',
-    'about-p6': '<strong style="color:#0F2044;">Năng lực Đóng góp:</strong> Vận dụng tư duy sản phẩm và phân tích dữ liệu để định hình, tối ưu, chuyển giao giải pháp IT; làm cầu nối giữa Kinh doanh (Business) và Kỹ thuật (Technology).',
-    'goal-short-eyebrow': 'Ngắn hạn · 12 Tháng', 'goal-short-title': 'Mục Tiêu Gần',
-    'goal-short-desc': 'Trở thành BA tại Quý công ty, tích lũy kinh nghiệm qua dự án phát triển phần mềm và thăng tiến.',
-    'goal-long-eyebrow': 'Dài hạn · 5 Năm', 'goal-long-title': 'Mục Tiêu Xa',
-    'goal-long-desc': 'Thăng tiến lên <strong style="color:#0A1628;">Senior BA</strong> hoặc <strong style="color:#0A1628;">Product Manager / Project Manager</strong>.',
-    'edu-eyebrow': 'Học Vấn', 'edu-title': 'Nền Tảng <span style="color:#1A3260;">Học Thuật</span>',
-    'uni-name': 'Đại học Kinh tế TP.HCM (UEH)',
-    'uni-major': 'Cử nhân ngành <strong style="color:#1A3260;">Hệ thống thông tin quản lý</strong>',
-    'uni-spec': 'Chuyên ngành: <strong style="color:#1A3260;">Hoạch định nguồn lực ERP</strong>',
-    'uni-city': 'TP. Hồ Chí Minh', 'tag-mis': 'Hệ thống thông tin quản lý',
-    'exp-eyebrow': 'Kinh Nghiệm & Dự Án',
-    'exp-title': 'Thực Chiến <span style="color:#1A3260;">& Kết Quả</span>',
-    'job1-company': 'Công ty CP Đào tạo và Tư vấn <strong style="color:#1A3260;">BAC</strong>',
-    'job1-period': '03/2025 – Hiện tại',
-    'p01-sub': 'Educational Management System',
-    'p01-li1': 'Phân tích và mô hình hóa quy trình nghiệp vụ (As-is/To-be) bằng Flowchart.',
-    'p01-li2': 'Điều phối UAT, tối ưu luồng người dùng, giảm thiểu tỷ lệ lỗi sau phát hành.',
-    'p02-sub': 'E-learning Platform for Sustainable Agriculture',
-    'p02-li1': 'Thiết kế Wireframe/Mockup và xây dựng User Flow để tích hợp phân hệ e-learning vào hệ sinh thái Nông nghiệp thông minh MEVI.',
-    'p03-sub': 'Quality Assurance & System Integrity',
-    'p03-li1': 'Đóng vai trò BA kiêm Tester, xây dựng Test Cases và tổ chức UAT, đảm bảo <strong style="color:#1A3260;">100% độ bao phủ yêu cầu</strong>.',
-    'job2-title': 'Trưởng nhóm Dự án BI',
-    'job2-company': 'Phân tích E-commerce cho <strong style="color:#1A3260;">Coupang</strong>',
-    'p04-li1': 'Dẫn dắt đội ngũ phân tích dữ liệu bằng <strong style="color:#0A1628;">Power BI</strong> và <strong style="color:#0A1628;">R</strong> để phân khúc khách hàng.',
-    'p04-li2': 'Đề xuất chiến lược kinh doanh dựa trên insight dữ liệu nhằm tối ưu hành vi mua sắm.',
-    'comp-eyebrow': 'Năng Lực Cốt Lõi',
-    'c01-sub': 'Phân tích Yêu cầu & Dữ liệu', 'c01-li1': 'Khởi tạo dự án, khơi gợi yêu cầu, Gap Analysis.', 'c01-li2': 'Định hướng ra quyết định dựa trên dữ liệu (Data-driven).', 'c01-li3': 'Đánh giá và ưu tiên hóa yêu cầu.',
-    'c02-sub': 'Đặc tả Chức năng & Thiết kế UX', 'c02-li1': 'Chuyển hóa bài toán nghiệp vụ thành tài liệu kỹ thuật, soạn thảo tài liệu BA tiêu chuẩn.', 'c02-li2': 'Trực quan hóa giải pháp (Wireframe/Mockup).', 'c02-li3': 'Mô hình hóa luồng nghiệp vụ (BPMN/Flowchart).',
-    'c03-sub': 'Hỗ trợ Sản phẩm', 'c03-li1': 'Làm việc trong môi trường Agile, theo dõi vòng đời phát triển tính năng.', 'c03-li2': 'Giao tiếp đa nhiệm, lên kịch bản UAT.', 'c03-li3': 'Cải tiến sản phẩm liên tục.',
-    'skills-eyebrow': 'Kỹ Năng & Công Cụ', 'skill-req-elicit': 'Khảo sát yêu cầu', 'skill-brd': 'Viết tài liệu BRD/SRS', 'skill-modeling': 'Mô hình hóa (BPMN/Flowchart)',
-    'tools-highlight': 'Thành thạo Figma cho Wireframe & Mockup — Draw.io cho mô hình hóa quy trình — Power BI cho phân tích dữ liệu.',
-    'lang-section-title': 'Ngoại Ngữ', 'lang-en-label': 'Tiếng Anh', 'lang-cn-label': 'Tiếng Trung', 'soft-skills-title': 'Kỹ Năng Mềm',
-    'soft-communication': 'Giao tiếp', 'soft-problem': 'Giải quyết vấn đề', 'soft-teamwork': 'Làm việc nhóm', 'soft-presentation': 'Thuyết trình',
-    'ach-eyebrow': 'Chứng Chỉ & Thành Tựu', 'cert-header': 'Chứng Chỉ', 'cert1-date': 'Cấp ngày: 01/04/2025', 'cert2-date': 'Cấp ngày: 31/03/2025',
-    'awards-header': 'Giải Thưởng AIESEC Vietnam', 'award1-sub': 'E-commerce miền Nam 2024', 'award2-sub': 'Data Analysis miền Nam 2023',
-    'research-header': 'Nghiên Cứu & Hoạt Động', 'research1-title': 'Giải thưởng NCKH/môn học xuất sắc UEH500', 'research1-sub': 'Đề tài nghiên cứu khoa học xuất sắc (2023)',
-    'research2-title': 'Thành viên CLB Tiếng Anh APPLE (UEH)', 'research2-sub': 'Tổ chức workshop quy mô <strong style="color:#C8A96E;">&gt;1000 sinh viên</strong>.',
-    'contact-eyebrow': 'Liên Hệ', 'contact-title': 'Hãy <span style="color:#C8A96E;">Kết Nối</span>',
-    'contact-desc': 'Tôi luôn sẵn sàng lắng nghe về các cơ hội mới. Hãy liên hệ để cùng thảo luận về cách tôi có thể đóng góp cho đội ngũ của bạn.',
-    'contact-phone-label': 'Điện Thoại', 'contact-form-title': 'Gửi Tin Nhắn Nhanh',
-    'form-name-label': 'Họ và Tên', 'form-message-label': 'Tin Nhắn',
-    'form-name-placeholder': 'Nguyễn Văn A', 'form-message-placeholder': 'Xin chào, tôi muốn trao đổi về...',
-    'form-submit': 'Gửi Tin Nhắn',
-    'contact-alert': 'Cảm ơn! Tin nhắn của bạn đã được ghi nhận. Tôi sẽ phản hồi sớm nhất có thể.',
-    'modal-click-hint': 'Nhấn để xem chi tiết',
-    'modal-desc-label': 'Mô tả dự án', 'modal-tasks-label': 'Nhiệm vụ thực hiện', 'modal-outcome-label': 'Kết quả đạt được',
-  },
-  en: {
-    'nav-about': 'About', 'nav-education': 'Education', 'nav-experience': 'Experience',
-    'nav-skills': 'Skills', 'nav-achievements': 'Achievements', 'nav-contact': 'Contact',
-    'hero-line1': 'Analyze.', 'hero-line2': 'Connect.', 'hero-line3': 'Transform.',
-    'hero-sub': 'A Business Analyst with an MIS foundation from UEH — proven hands-on experience across EduTech, AgriTech, E-commerce & Retail. Bridging the gap between <strong class="text-white font-medium">Business</strong> and <strong class="text-white font-medium">Technology</strong>.',
-    'cta-projects': 'View Projects', 'cta-contact': 'Contact Now',
-    'stat-domains': 'Industry Domains', 'stat-uat': 'UAT Requirements Coverage', 'stat-students': 'Workshop Students',
-    'about-eyebrow': 'Professional Summary',
-    'about-title': 'About Me &<br/><span style="color:#1A3260;">My Goals</span>',
-    'about-p1': 'A <strong style="color:#0F2044;">Business Analyst with a Product Mindset</strong>, driven to deliver impactful digital solutions.',
-    'about-p2': 'Holds an academic foundation in <strong style="color:#0F2044;">Management Information Systems (MIS)</strong> at UEH.',
-    'about-p3': 'Possesses hands-on experience in software analysis and deployment across multiple domains: <strong style="color:#0F2044;">EduTech, E-commerce, Service & Retail, AgriTech</strong>.',
-    'about-p4': '<strong style="color:#0F2044;">Core Strengths:</strong> Stakeholder Management, rapid adaptability, and translating business requirements into effective technology solutions.',
-    'about-p5': '<strong style="color:#0F2044;">Proficient in:</strong> Requirements Elicitation, business process modeling (BPMN/Flowchart), Wireframing, and professional BA documentation.',
-    'about-p6': '<strong style="color:#0F2044;">Value Contribution:</strong> Applying product thinking and data analytics to shape, optimize, and deliver IT solutions; serving as the bridge between Business and Technology.',
-    'goal-short-eyebrow': 'Short-Term · 12 Months', 'goal-short-title': 'Near-Term Goal',
-    'goal-short-desc': 'To join as a Business Analyst, gain hands-on experience through software development projects, and advance within the organization.',
-    'goal-long-eyebrow': 'Long-Term · 5 Years', 'goal-long-title': 'Long-Term Goal',
-    'goal-long-desc': 'To advance to <strong style="color:#0A1628;">Senior BA</strong> or transition into a <strong style="color:#0A1628;">Product Manager / Project Manager</strong> role.',
-    'edu-eyebrow': 'Education', 'edu-title': 'Academic <span style="color:#1A3260;">Foundation</span>',
-    'uni-name': 'University of Economics Ho Chi Minh City (UEH)',
-    'uni-major': 'Bachelor of <strong style="color:#1A3260;">Management Information Systems (MIS)</strong>',
-    'uni-spec': 'Specialization: <strong style="color:#1A3260;">ERP Resource Planning</strong>',
-    'uni-city': 'Ho Chi Minh City', 'tag-mis': 'Management Information Systems',
-    'exp-eyebrow': 'Work Experience & Projects',
-    'exp-title': 'Real-World <span style="color:#1A3260;">Experience & Results</span>',
-    'job1-company': 'BAC Training & Consulting JSC — <strong style="color:#1A3260;">BAC</strong>',
-    'job1-period': '03/2025 – Present',
-    'p01-sub': 'Educational Management System',
-    'p01-li1': 'Analyzed and modeled business processes (As-is/To-be) using Flowcharts to identify and resolve workflow bottlenecks.',
-    'p01-li2': 'Coordinated UAT sessions, optimized user flows, and significantly reduced post-release defect rates.',
-    'p02-sub': 'E-learning Platform for Sustainable Agriculture',
-    'p02-li1': 'Designed Wireframes/Mockups and built User Flows to integrate an e-learning module into the MEVI Smart Agriculture ecosystem.',
-    'p03-sub': 'Quality Assurance & System Integrity',
-    'p03-li1': 'Served dual role as BA and Tester; built Test Cases and organized UAT, achieving <strong style="color:#1A3260;">100% requirements coverage</strong>.',
-    'job2-title': 'BI Project Team Lead',
-    'job2-company': 'E-commerce Analytics for <strong style="color:#1A3260;">Coupang</strong>',
-    'p04-li1': 'Led the data analytics team using <strong style="color:#0A1628;">Power BI</strong> and <strong style="color:#0A1628;">R</strong> for customer segmentation.',
-    'p04-li2': 'Proposed data-driven business strategies to optimize customer purchasing behavior.',
-    'comp-eyebrow': 'Core Competencies',
-    'c01-sub': 'Requirements & Data Analysis', 'c01-li1': 'Project initiation, requirements elicitation, and Gap Analysis.', 'c01-li2': 'Data-driven decision making and actionable insight generation.', 'c01-li3': 'Requirements evaluation and prioritization.',
-    'c02-sub': 'Functional Specification & UX Design', 'c02-li1': 'Translating business problems into technical documents; drafting standard BA documentation.', 'c02-li2': 'Solution visualization through Wireframe/Mockup design.', 'c02-li3': 'Business process modeling (BPMN/Flowchart).',
-    'c03-sub': 'Product Support', 'c03-li1': 'Working in Agile environments, tracking feature development lifecycles.', 'c03-li2': 'Cross-functional communication and UAT scenario planning.', 'c03-li3': 'Continuous product improvement and iteration.',
-    'skills-eyebrow': 'Skills & Tools', 'skill-req-elicit': 'Requirements Elicitation', 'skill-brd': 'BRD/SRS Documentation', 'skill-modeling': 'Process Modeling (BPMN/Flowchart)',
-    'tools-highlight': 'Proficient in Figma for Wireframing & Mockups — Draw.io for process modeling — Power BI for data analytics.',
-    'lang-section-title': 'Languages', 'lang-en-label': 'English', 'lang-cn-label': 'Chinese (Mandarin)', 'soft-skills-title': 'Soft Skills',
-    'soft-communication': 'Communication', 'soft-problem': 'Problem Solving', 'soft-teamwork': 'Teamwork', 'soft-presentation': 'Presentation',
-    'ach-eyebrow': 'Certificates & Achievements', 'cert-header': 'Certifications', 'cert1-date': 'Issued: 01/04/2025', 'cert2-date': 'Issued: 31/03/2025',
-    'awards-header': 'AIESEC Vietnam Awards', 'award1-sub': 'Southern Region E-commerce 2024', 'award2-sub': 'Southern Region Data Analysis 2023',
-    'research-header': 'Research & Activities', 'research1-title': 'UEH500 Outstanding Academic Research Award', 'research1-sub': 'Outstanding Scientific Research Project (2023)',
-    'research2-title': 'Member of APPLE English Club (UEH)', 'research2-sub': 'Organized workshops for <strong style="color:#C8A96E;">&gt;1,000 students</strong>.',
-    'contact-eyebrow': 'Contact', 'contact-title': "Let's <span style=\"color:#C8A96E;\">Connect</span>",
-    'contact-desc': "I'm always open to hearing about new opportunities. Feel free to reach out to discuss how I can contribute to your team.",
-    'contact-phone-label': 'Phone', 'contact-form-title': 'Send a Quick Message',
-    'form-name-label': 'Full Name', 'form-message-label': 'Message',
-    'form-name-placeholder': 'John Doe', 'form-message-placeholder': "Hello, I'd like to discuss...",
-    'form-submit': 'Send Message',
-    'contact-alert': 'Thank you! Your message has been received. I will respond as soon as possible.',
-    'modal-click-hint': 'Click to view details',
-    'modal-desc-label': 'Project Overview', 'modal-tasks-label': 'Key Responsibilities', 'modal-outcome-label': 'Outcome',
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Mobile menu ──
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
   }
-};
 
-/* ══════════════════════════════════════════
-   PROJECT MODAL DATA
-══════════════════════════════════════════ */
-const projectData = {
-  p01: {
-    vi: {
-      num: 'PROJECT 01', domain: 'EduTech', domainBg: 'rgba(41,82,163,0.15)', domainColor: '#2952A3', domainBorder: 'rgba(41,82,163,0.3)',
-      title: 'CEB Project', subtitle: 'Educational Management System',
-      image: 'https://placehold.co/800x220/0F2044/C8A96E?text=CEB+Project+%E2%80%94+Educational+Management+System',
-      description: 'Dự án phát triển Hệ thống Quản lý Giáo dục toàn diện cho tổ chức CEB, nhằm số hóa và tối ưu hóa quy trình vận hành học viện.',
-      tasks: [
-        'Phân tích và mô hình hóa quy trình nghiệp vụ hiện tại (As-is) và tương lai (To-be) bằng Flowchart, làm rõ các điểm bottleneck.',
-        'Khơi gợi và thu thập yêu cầu từ các bên liên quan (giáo viên, quản lý trường, học viên) qua phỏng vấn và workshop.',
-        'Soạn thảo tài liệu BRD (Business Requirements Document) và SRS (Software Requirements Specification) đạt chuẩn.',
-        'Điều phối toàn bộ chu kỳ UAT (User Acceptance Testing), xây dựng test scenarios, theo dõi và phân loại defect.',
-        'Tối ưu hóa luồng người dùng, đóng góp vào việc giảm thiểu tỷ lệ lỗi sau khi phát hành sản phẩm.',
-      ],
-      outcome: 'Hệ thống được ra mắt đúng tiến độ với tỷ lệ lỗi sau phát hành giảm đáng kể nhờ quy trình UAT được tối ưu và tài liệu BA chi tiết.',
-      tags: ['Flowchart', 'As-is/To-be', 'UAT', 'BRD/SRS', 'Stakeholder Interviews'],
-    },
-    en: {
-      num: 'PROJECT 01', domain: 'EduTech', domainBg: 'rgba(41,82,163,0.15)', domainColor: '#2952A3', domainBorder: 'rgba(41,82,163,0.3)',
-      title: 'CEB Project', subtitle: 'Educational Management System',
-      image: 'https://placehold.co/800x220/0F2044/C8A96E?text=CEB+Project+%E2%80%94+Educational+Management+System',
-      description: 'A comprehensive Educational Management System for the CEB organization, aimed at digitalizing and optimizing academy operational workflows end-to-end.',
-      tasks: [
-        'Analyzed and modeled current (As-is) and future (To-be) business processes using Flowcharts to identify bottlenecks and improvement opportunities.',
-        'Elicited and gathered requirements from key stakeholders (teachers, school administrators, students) through structured interviews and workshops.',
-        'Drafted BRD (Business Requirements Document) and SRS (Software Requirements Specification) to professional standards.',
-        'Coordinated the full UAT (User Acceptance Testing) cycle, including building test scenarios, tracking and classifying defects.',
-        'Optimized user flows, contributing to a significant reduction in post-release defect rates.',
-      ],
-      outcome: 'The system launched on schedule with a significantly reduced post-release defect rate, driven by an optimized UAT process and detailed BA documentation.',
-      tags: ['Flowchart', 'As-is/To-be', 'UAT', 'BRD/SRS', 'Stakeholder Interviews'],
-    }
-  },
-  p02: {
-    vi: {
-      num: 'PROJECT 02', domain: 'AgriTech', domainBg: 'rgba(34,197,94,0.12)', domainColor: '#16a34a', domainBorder: 'rgba(34,197,94,0.3)',
-      title: 'WE4Ag', subtitle: 'E-learning Platform for Sustainable Agriculture',
-      image: 'https://placehold.co/800x220/0F2044/16a34a?text=WE4Ag+%E2%80%94+Smart+Agriculture+E-learning',
-      description: 'Dự án tích hợp phân hệ E-learning vào hệ sinh thái Nông nghiệp thông minh MEVI — nền tảng kết nối nông dân với tri thức số về canh tác bền vững.',
-      tasks: [
-        'Thiết kế Wireframe/Mockup các giao diện chính (trang học, quản lý khóa học, dashboard nông dân) bằng Figma.',
-        'Xây dựng User Flow chi tiết, làm rõ hành trình người dùng từ đăng ký đến hoàn thành khóa học.',
-        'Phân tích yêu cầu tích hợp giữa module E-learning và các hệ thống MEVI hiện có (quản lý mùa vụ, IoT sensors).',
-        'Thực hiện phỏng vấn người dùng là nông dân để đảm bảo UX phù hợp với đặc thù của đối tượng ít tiếp xúc công nghệ.',
-      ],
-      outcome: 'Wireframe và User Flow được phê duyệt bởi đội phát triển, là nền tảng để sprint tiếp theo triển khai thành công chức năng E-learning vào hệ sinh thái MEVI.',
-      tags: ['Wireframe', 'Mockup', 'User Flow', 'Figma', 'UX Research'],
-    },
-    en: {
-      num: 'PROJECT 02', domain: 'AgriTech', domainBg: 'rgba(34,197,94,0.12)', domainColor: '#16a34a', domainBorder: 'rgba(34,197,94,0.3)',
-      title: 'WE4Ag', subtitle: 'E-learning Platform for Sustainable Agriculture',
-      image: 'https://placehold.co/800x220/0F2044/16a34a?text=WE4Ag+%E2%80%94+Smart+Agriculture+E-learning',
-      description: 'An e-learning integration project for the MEVI Smart Agriculture ecosystem — a platform connecting farmers to digital knowledge for sustainable and modern agricultural practices.',
-      tasks: [
-        'Designed Wireframes/Mockups for key interfaces (course pages, course management, farmer dashboard) using Figma.',
-        'Built comprehensive User Flows to map the user journey from registration to course completion.',
-        'Analyzed integration requirements between the E-learning module and existing MEVI systems (crop management, IoT sensors).',
-        'Conducted user interviews with farmers to ensure UX appropriately caters to users with limited technology exposure.',
-      ],
-      outcome: 'Wireframes and User Flows were approved by the development team, forming the foundation for the next sprint's successful E-learning feature implementation within the MEVI ecosystem.',
-      tags: ['Wireframe', 'Mockup', 'User Flow', 'Figma', 'UX Research'],
-    }
-  },
-  p03: {
-    vi: {
-      num: 'PROJECT 03', domain: 'Service & Retail', domainBg: 'rgba(251,146,60,0.12)', domainColor: '#ea580c', domainBorder: 'rgba(251,146,60,0.3)',
-      title: 'xuanlanbui.com', subtitle: 'Quality Assurance & System Integrity',
-      image: 'https://placehold.co/800x220/0F2044/ea580c?text=xuanlanbui.com+%E2%80%94+QA+%26+System+Integrity',
-      description: 'Dự án đảm bảo chất lượng hệ thống thương mại điện tử cho thương hiệu Xuân Lan Bui, với vai trò kép BA và Tester nhằm đảm bảo toàn vẹn hệ thống trước khi ra mắt.',
-      tasks: [
-        'Đảm nhận vai trò kép: BA để phân tích và làm rõ yêu cầu; Tester để lập kế hoạch và thực thi kiểm thử.',
-        'Xây dựng bộ Test Cases toàn diện từ yêu cầu nghiệp vụ, bao phủ 100% các use cases đã xác định.',
-        'Tổ chức và điều phối UAT (User Acceptance Testing) với stakeholders, đảm bảo mọi yêu cầu được ký duyệt.',
-        'Phát hiện, ghi nhận và theo dõi defect xuyên suốt vòng đời kiểm thử, đảm bảo resolve trước khi go-live.',
-        'Tổng hợp báo cáo kiểm thử và bàn giao hệ thống đã được xác nhận cho client.',
-      ],
-      outcome: 'Đạt 100% độ bao phủ yêu cầu UAT. Hệ thống go-live thành công, không ghi nhận critical defect nào sau khi ra mắt.',
-      tags: ['Test Cases', 'UAT', 'BA + Tester', 'QA', 'Defect Management'],
-    },
-    en: {
-      num: 'PROJECT 03', domain: 'Service & Retail', domainBg: 'rgba(251,146,60,0.12)', domainColor: '#ea580c', domainBorder: 'rgba(251,146,60,0.3)',
-      title: 'xuanlanbui.com', subtitle: 'Quality Assurance & System Integrity',
-      image: 'https://placehold.co/800x220/0F2044/ea580c?text=xuanlanbui.com+%E2%80%94+QA+%26+System+Integrity',
-      description: 'A quality assurance project for the Xuân Lan Bui e-commerce system, taking on dual roles as BA and Tester to ensure complete system integrity prior to public launch.',
-      tasks: [
-        'Assumed a dual role as BA for requirements analysis and clarification, and as Tester for test planning and execution.',
-        'Built a comprehensive Test Case suite derived from business requirements, achieving 100% coverage of all identified use cases.',
-        'Organized and facilitated UAT (User Acceptance Testing) sessions with stakeholders to formally sign off all requirements.',
-        'Identified, logged, and tracked defects throughout the testing lifecycle, ensuring all issues were resolved prior to go-live.',
-        'Compiled final testing reports and handed over the fully validated system to the client.',
-      ],
-      outcome: 'Achieved 100% UAT requirement coverage. The system went live successfully with zero critical defects reported post-launch.',
-      tags: ['Test Cases', 'UAT', 'BA + Tester', 'QA', 'Defect Management'],
-    }
-  },
-  p04: {
-    vi: {
-      num: 'PROJECT 04', domain: 'E-commerce & BI', domainBg: 'rgba(168,85,247,0.12)', domainColor: '#9333ea', domainBorder: 'rgba(168,85,247,0.3)',
-      title: 'Coupang BI — Data-driven E-commerce Strategy', subtitle: 'Business Intelligence & Customer Analytics',
-      image: 'https://placehold.co/800x220/0F2044/9333ea?text=Coupang+BI+%E2%80%94+Data-driven+Strategy',
-      description: 'Dự án phân tích dữ liệu cho sàn thương mại điện tử Coupang với vai trò Trưởng nhóm, ứng dụng Power BI và R để xây dựng chiến lược kinh doanh dựa trên dữ liệu.',
-      tasks: [
-        'Dẫn dắt đội nhóm phân tích dữ liệu đa thành viên, phân công nhiệm vụ và đảm bảo tiến độ.',
-        'Sử dụng ngôn ngữ R để làm sạch dữ liệu, phân tích thống kê và xây dựng mô hình phân khúc khách hàng RFM.',
-        'Xây dựng dashboard tương tác trên Power BI để trực quan hóa hành vi mua sắm và xu hướng thị trường.',
-        'Phân tích Cohort và Customer Lifetime Value (CLV) để xác định nhóm khách hàng có giá trị cao nhất.',
-        'Tổng hợp insights và đề xuất chiến lược kinh doanh cụ thể nhằm tối ưu hóa tỷ lệ giữ chân khách hàng.',
-      ],
-      outcome: 'Dashboard Power BI được trình bày thành công trước ban lãnh đạo. Đề xuất chiến lược được đánh giá cao và đóng góp vào định hướng kinh doanh của dự án.',
-      tags: ['Power BI', 'R Language', 'Customer Segmentation', 'RFM Analysis', 'CLV', 'Team Lead'],
-    },
-    en: {
-      num: 'PROJECT 04', domain: 'E-commerce & BI', domainBg: 'rgba(168,85,247,0.12)', domainColor: '#9333ea', domainBorder: 'rgba(168,85,247,0.3)',
-      title: 'Coupang BI — Data-driven E-commerce Strategy', subtitle: 'Business Intelligence & Customer Analytics',
-      image: 'https://placehold.co/800x220/0F2044/9333ea?text=Coupang+BI+%E2%80%94+Data-driven+Strategy',
-      description: 'A data analytics project for the Coupang e-commerce platform, acting as Team Lead to leverage Power BI and R to build a comprehensive data-driven business strategy.',
-      tasks: [
-        'Led a multi-member data analytics team, delegating responsibilities and ensuring all project milestones were met on schedule.',
-        'Utilized R for data cleaning, statistical analysis, and building an RFM-based Customer Segmentation model.',
-        'Developed interactive Power BI dashboards to visualize shopping behavior trends and market insights.',
-        'Performed Cohort Analysis and Customer Lifetime Value (CLV) modeling to identify the highest-value customer segments.',
-        'Synthesized data insights and proposed concrete business strategies to optimize customer retention rates.',
-      ],
-      outcome: 'The Power BI dashboard was successfully presented to senior management. The strategic proposals were highly commended and directly informed key business decisions for the project.',
-      tags: ['Power BI', 'R Language', 'Customer Segmentation', 'RFM Analysis', 'CLV', 'Team Lead'],
-    }
+  // ── Scroll Reveal ──
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ── Skill bars ──
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.card').forEach(c => { if (c.querySelector('.skill-bar-fill')) barObserver.observe(c); });
+
+  // ── Contact handler ──
+  function handleContact() {
+    alert('Cảm ơn! Tin nhắn của bạn đã được ghi nhận. Tôi sẽ phản hồi sớm nhất có thể.');
   }
-};
 
-/* ══════════════════════════════════════════
-   LANGUAGE SYSTEM
-══════════════════════════════════════════ */
-let currentLang = 'vi';
-
-function toggleLanguage() {
-  currentLang = currentLang === 'vi' ? 'en' : 'vi';
-  applyLanguage(currentLang);
-}
-
-function applyLanguage(lang) {
-  const t = translations[lang];
-
-  // Update textContent elements
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.textContent = t[key];
+  // ── Smooth active nav on scroll ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(l => {
+      l.style.color = l.getAttribute('href') === '#' + current ? '#C8A96E' : '';
+    });
   });
-
-  // Update innerHTML elements
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.getAttribute('data-i18n-html');
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-
-  // Update placeholders
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[key] !== undefined) el.placeholder = t[key];
-  });
-
-  // Update modal label elements by ID
-  const modalDescLabel = document.getElementById('modal-desc-label');
-  const modalTasksLabel = document.getElementById('modal-tasks-label');
-  const modalOutcomeLabel = document.getElementById('modal-outcome-label');
-  if (modalDescLabel) modalDescLabel.textContent = t['modal-desc-label'];
-  if (modalTasksLabel) modalTasksLabel.textContent = t['modal-tasks-label'];
-  if (modalOutcomeLabel) modalOutcomeLabel.textContent = t['modal-outcome-label'];
-
-  // Update toggle button visuals (desktop + mobile)
-  const viElems = [document.getElementById('lang-vi-btn'), document.getElementById('lang-vi-mobile')];
-  const enElems = [document.getElementById('lang-en-btn'), document.getElementById('lang-en-mobile')];
-  viElems.forEach(el => { if (el) el.classList.toggle('active', lang === 'vi'); });
-  enElems.forEach(el => { if (el) el.classList.toggle('active', lang === 'en'); });
-
-  // Update html lang attr
-  document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
-}
-
-/* ══════════════════════════════════════════
-   MODAL SYSTEM
-══════════════════════════════════════════ */
-function openModal(projectId) {
-  const data = projectData[projectId][currentLang];
-  if (!data) return;
-
-  // Populate header
-  document.getElementById('modal-proj-num').textContent = data.num;
-  document.getElementById('modal-proj-title').textContent = data.title;
-  document.getElementById('modal-proj-subtitle').textContent = data.subtitle;
-
-  // Domain badge
-  const badge = document.getElementById('modal-domain-badge');
-  badge.textContent = data.domain;
-  badge.style.background = data.domainBg;
-  badge.style.color = data.domainColor;
-  badge.style.border = `1px solid ${data.domainBorder}`;
-
-  // Image
-  document.getElementById('modal-img').src = data.image;
-
-  // Description
-  document.getElementById('modal-description').textContent = data.description;
-
-  // Tasks
-  const tasksEl = document.getElementById('modal-tasks');
-  tasksEl.innerHTML = '';
-  data.tasks.forEach((task, i) => {
-    const div = document.createElement('div');
-    div.className = 'modal-task-item';
-    div.innerHTML = `
-      <div style="min-width:24px;height:24px;border-radius:50%;background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-        <span style="color:#C8A96E;font-size:0.65rem;font-weight:700;">${String(i+1).padStart(2,'0')}</span>
-      </div>
-      <p style="color:#475569;font-size:0.87rem;line-height:1.6;">${task}</p>
-    `;
-    tasksEl.appendChild(div);
-  });
-
-  // Outcome
-  document.getElementById('modal-outcome').textContent = data.outcome;
-
-  // Tags
-  const tagsEl = document.getElementById('modal-tags');
-  tagsEl.innerHTML = '';
-  data.tags.forEach(tag => {
-    const span = document.createElement('span');
-    span.className = 'modal-tag';
-    span.innerHTML = `<i class="fas fa-tag" style="font-size:0.55rem;"></i>${tag}`;
-    tagsEl.appendChild(span);
-  });
-
-  // Open overlay
-  const overlay = document.getElementById('modal-overlay');
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  // Scroll modal to top
-  document.getElementById('modal-card').scrollTop = 0;
-}
-
-function closeModal() {
-  const overlay = document.getElementById('modal-overlay');
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// Close on overlay click (outside card)
-document.getElementById('modal-overlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-// Close on Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModal();
-});
-
-// Keyboard accessibility for project cards
-document.querySelectorAll('.project-card').forEach(card => {
-  card.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      card.click();
-    }
-  });
-});
-
-/* ══════════════════════════════════════════
-   NAVBAR SCROLL
-══════════════════════════════════════════ */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-/* ══════════════════════════════════════════
-   MOBILE MENU
-══════════════════════════════════════════ */
-function toggleMenu() {
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-
-/* ══════════════════════════════════════════
-   SCROLL REVEAL
-══════════════════════════════════════════ */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
-
-/* ══════════════════════════════════════════
-   SKILL BARS
-══════════════════════════════════════════ */
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-bar-fill').forEach(bar => { bar.style.width = bar.dataset.width + '%'; });
-      barObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.card').forEach(c => { if (c.querySelector('.skill-bar-fill')) barObserver.observe(c); });
-
-/* ══════════════════════════════════════════
-   CONTACT HANDLER
-══════════════════════════════════════════ */
-function handleContact() {
-  alert(translations[currentLang]['contact-alert']);
-}
-
-/* ══════════════════════════════════════════
-   ACTIVE NAV ON SCROLL
-══════════════════════════════════════════ */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
-  navLinks.forEach(l => { l.style.color = l.getAttribute('href') === '#' + current ? '#C8A96E' : ''; });
-});
 </script>
 </body>
 </html>
