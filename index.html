@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 <script>
   tailwind.config = {
@@ -43,6 +43,18 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 4px 30px rgba(0,0,0,0.3);
   }
+  #navbar:not(.scrolled) .nav-link {
+    color: #475569;
+  }
+  #navbar.scrolled .nav-link {
+    color: #CBD5E1;
+  }
+  #navbar:not(.scrolled) .nav-brand {
+    color: #0A1628 !important;
+  }
+  #navbar:not(.scrolled) #hamburger {
+    color: #0A1628 !important;
+  }
   .nav-link {
     position: relative;
     color: #CBD5E1;
@@ -59,15 +71,14 @@
     background: #C8A96E;
     transition: width 0.35s ease;
   }
-  .nav-link:hover { color: #fff; }
+  #navbar.scrolled .nav-link:hover { color: #fff; }
+  #navbar:not(.scrolled) .nav-link:hover { color: #0A1628; }
   .nav-link:hover::after { width: 100%; }
 
-  /* ── Hero ── */
+  /* ── Hero / Profile (unified) ── */
   #hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0A1628 0%, #1A3260 55%, #0F2044 100%);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
   .hero-grid {
     position: absolute; inset: 0;
@@ -399,6 +410,18 @@
   #navbar.scrolled .lang-toggle-pill {
     background: rgba(15, 32, 68, 0.75);
   }
+  #navbar:not(.scrolled) .lang-toggle-pill {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(100, 116, 139, 0.45);
+    color: #475569;
+  }
+  #navbar:not(.scrolled) .lang-toggle-pill:hover {
+    color: #0A1628;
+    border-color: rgba(200, 169, 110, 0.65);
+  }
+  #navbar:not(.scrolled) .lang-toggle-pill .lang-opt.is-active {
+    color: #1A3260;
+  }
 </style>
 </head>
 <body>
@@ -411,7 +434,7 @@
       <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#1A3260,#2952A3);">
         <span style="color:#C8A96E;font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;">B</span>
       </div>
-      <span style="color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;" data-vi="Huỳnh Trang Gia Linh Portfolio" data-en="Huỳnh Trang Gia Linh Portfolio">Portfolio BA</span>
+      <span class="nav-brand" style="color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;" data-vi="Huỳnh Trang Gia Linh Portfolio" data-en="Huỳnh Trang Gia Linh Portfolio">Portfolio BA</span>
     </a>
 
     <!-- Desktop Links + Language -->
@@ -457,48 +480,72 @@
   </div>
 </nav>
 
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-<section id="hero" class="relative flex items-center justify-center px-6">
-  <div class="hero-grid"></div>
-
-  <!-- Decorative orbs -->
-  <div class="hero-orb" style="width:500px;height:500px;background:#2952A3;top:-100px;right:-100px;animation-delay:0s;"></div>
-  <div class="hero-orb" style="width:350px;height:350px;background:#C8A96E;bottom:-80px;left:-80px;animation-delay:3s;"></div>
-  <div class="hero-orb" style="width:200px;height:200px;background:#1A3260;top:40%;left:15%;animation-delay:5s;opacity:0.08;"></div>
-
-  <div class="relative z-10 max-w-5xl mx-auto text-center py-32">
-    <div class="hero-badge mb-8">
-      <i class="fas fa-chart-line" style="color:#C8A96E;"></i>
-      <span data-vi="Business Analyst &nbsp;·&nbsp; Tư duy Sản phẩm" data-en="Business Analyst &nbsp;·&nbsp; Product Mindset">Business Analyst &nbsp;·&nbsp; Tư duy Sản phẩm</span>
+<!-- ═══════════════════════════════ HERO + PROFILE (UNIFIED) ═══════════════════════════════ -->
+<section id="hero" class="relative bg-slate-50 font-body text-slate-800 pt-24 pb-12 md:pb-16">
+  <!-- Part 1: Artistic banner -->
+  <div class="relative w-full overflow-hidden border-b border-slate-200/90">
+    <div class="absolute inset-0 bg-gradient-to-br from-rose-50 via-sky-50/90 to-violet-100/80"></div>
+    <div class="absolute inset-0 opacity-[0.45] mix-blend-multiply" style="background-image: radial-gradient(ellipse 85% 55% at 15% 35%, rgba(192, 132, 252, 0.35), transparent), radial-gradient(ellipse 75% 50% at 85% 55%, rgba(56, 189, 248, 0.28), transparent), radial-gradient(ellipse 55% 45% at 50% 85%, rgba(244, 114, 182, 0.22), transparent), radial-gradient(ellipse 60% 40% at 70% 20%, rgba(253, 224, 200, 0.5), transparent);"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 pt-12 pb-16 md:pt-16 md:pb-20 text-center">
+      <p class="font-display text-2xl sm:text-3xl md:text-4xl text-slate-700 italic font-normal mb-2 md:mb-3 tracking-wide" data-vi="Chào mừng bạn đến với" data-en="Welcome to my">Chào mừng bạn đến với</p>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-[0.18em] sm:tracking-[0.22em] mb-8 md:mb-10 uppercase" data-vi="PORTFOLIO" data-en="PORTFOLIO">PORTFOLIO</h1>
+      <span class="inline-flex items-center rounded-full border border-slate-300/90 bg-white/75 backdrop-blur-sm px-6 py-2.5 text-sm font-semibold tracking-wide text-slate-800 shadow-sm" data-vi="Business Analyst" data-en="Business Analyst">Business Analyst</span>
     </div>
+  </div>
 
-    <h1 class="hero-title text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6">
-      <span data-vi="Phân tích." data-en="Analyze.">Phân tích.</span><br />
-      <span style="color:#C8A96E;" data-vi="Kết nối." data-en="Connect.">Kết nối.</span><br />
-      <span data-vi="Chuyển đổi." data-en="Transform.">Chuyển đổi.</span>
-    </h1>
-
-    <p class="hero-sub text-slate-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style="font-weight:300;">
-      <span data-vi="Một Business Analyst với nền tảng MIS từ UEH — kinh nghiệm thực chiến tại EduTech, AgriTech, E-commerce &amp; Retail. Làm cầu nối giữa " data-en="A Business Analyst with an MIS foundation from UEH — hands-on experience across EduTech, AgriTech, E-commerce &amp; Retail. Bridging ">Một Business Analyst với nền tảng MIS từ UEH — kinh nghiệm thực chiến tại EduTech, AgriTech, E-commerce &amp; Retail. Làm cầu nối giữa </span><strong class="text-white font-medium" data-vi="Kinh doanh" data-en="Business">Kinh doanh</strong><span data-vi=" và " data-en=" and "> và </span><strong class="text-white font-medium" data-vi="Công nghệ" data-en="Technology">Công nghệ</strong><span data-vi="." data-en=".">.</span>
-    </p>
-
-    <div class="hero-cta flex flex-wrap items-center justify-center gap-4">
-      <a href="#experience" class="cta-btn cta-primary">
-        <i class="fas fa-briefcase text-xs"></i>
-        <span data-vi="Xem Dự Án" data-en="View Projects">Xem Dự Án</span>
-      </a>
-      <a href="#contact" class="cta-btn cta-outline">
-        <i class="fas fa-paper-plane text-xs"></i>
-        <span data-vi="Liên Hệ Ngay" data-en="Get in Touch">Liên Hệ Ngay</span>
-      </a>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2" style="animation: float 2.5s ease-in-out infinite;">
-      <a href="#about" class="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors">
-        <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;" data-vi="Cuộn" data-en="Scroll">Cuộn</span>
-        <i class="fas fa-chevron-down text-xs"></i>
-      </a>
+  <!-- Part 2: Profile card (overlap) -->
+  <div id="about" class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 -mt-10 md:-mt-14">
+    <div class="bg-white rounded-2xl shadow-xl shadow-slate-300/25 border border-slate-100 overflow-hidden">
+      <div class="flex flex-col lg:flex-row">
+        <!-- Left ~35% -->
+        <aside class="w-full lg:w-[35%] bg-gradient-to-b from-slate-50 to-white lg:bg-slate-50/90 border-b lg:border-b-0 lg:border-r border-slate-100 p-8 md:p-10 text-center lg:text-left">
+          <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-8 leading-snug">Huỳnh Trang Gia Linh</h2>
+          <div class="flex justify-center lg:justify-start">
+            <img src="https://placehold.co/400x400?text=Avatar" alt="Avatar" class="rounded-full object-cover w-56 h-56 md:w-64 md:h-64 border-4 border-white shadow-lg" width="400" height="400" loading="lazy" />
+          </div>
+        </aside>
+        <!-- Right ~65% -->
+        <div class="w-full lg:w-[65%] p-8 md:p-10 lg:p-12 bg-white">
+          <h3 class="font-display text-xl md:text-2xl font-bold text-slate-900 mb-6 pb-3 border-b border-slate-200" data-vi="Tóm tắt Chuyên môn" data-en="Professional Summary">Tóm tắt Chuyên môn</h3>
+          <ul class="space-y-4 mb-10 text-slate-600 text-sm md:text-[0.95rem] leading-relaxed list-none">
+            <li class="flex gap-3 items-start">
+              <span class="mt-2 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-amber-600/85" aria-hidden="true"></span>
+              <span data-vi="Một Business Analyst có tư duy sản phẩm, tốt nghiệp ngành Hệ thống thông tin quản lý tại UEH. Có kinh nghiệm thực chiến đa lĩnh vực (EduTech, E-commerce, Service &amp; Retail, AgriTech)." data-en="A Product-minded Business Analyst with an MIS degree from UEH. Hands-on experience across multiple domains (EduTech, E-commerce, Service &amp; Retail, AgriTech).">Một Business Analyst có tư duy sản phẩm, tốt nghiệp ngành Hệ thống thông tin quản lý tại UEH. Có kinh nghiệm thực chiến đa lĩnh vực (EduTech, E-commerce, Service &amp; Retail, AgriTech).</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="mt-2 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-amber-600/85" aria-hidden="true"></span>
+              <span data-vi="Thế mạnh về Stakeholder Management, khả năng thích ứng nhanh nhạy và chuyển hóa các yêu cầu kinh doanh phức tạp thành giải pháp công nghệ hiệu quả." data-en="Strong in Stakeholder Management, highly adaptable, with the ability to translate complex business requirements into effective technology solutions.">Thế mạnh về Stakeholder Management, khả năng thích ứng nhanh nhạy và chuyển hóa các yêu cầu kinh doanh phức tạp thành giải pháp công nghệ hiệu quả.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="mt-2 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-amber-600/85" aria-hidden="true"></span>
+              <span data-vi="Thành thạo trong việc thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe và xây dựng tài liệu BA, đảm bảo sự kết nối nhịp nhàng giữa Business và Tech." data-en="Proficient in requirements gathering, process modeling (BPMN/Flowchart), wireframing, and creating BA documentation, ensuring smooth alignment between Business and Tech.">Thành thạo trong việc thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe và xây dựng tài liệu BA, đảm bảo sự kết nối nhịp nhàng giữa Business và Tech.</span>
+            </li>
+          </ul>
+          <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4" data-vi="Thông tin liên hệ" data-en="Contact Information">Thông tin liên hệ</h4>
+          <ul class="space-y-3.5 text-sm text-slate-700 list-none">
+            <li class="flex gap-3 items-start">
+              <i class="fas fa-location-dot mt-0.5 text-amber-800/90 w-5 text-center flex-shrink-0" aria-hidden="true"></i>
+              <span data-vi="Địa chỉ: Quận 8, TP. Hồ Chí Minh" data-en="Address: District 8, Ho Chi Minh City">Địa chỉ: Quận 8, TP. Hồ Chí Minh</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <i class="fas fa-cake-candles mt-0.5 text-amber-800/90 w-5 text-center flex-shrink-0" aria-hidden="true"></i>
+              <span data-vi="Ngày sinh: 13/01/2004" data-en="Date of Birth: Jan 13, 2004">Ngày sinh: 13/01/2004</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <i class="fas fa-phone mt-0.5 text-amber-800/90 w-5 text-center flex-shrink-0" aria-hidden="true"></i>
+              <span data-vi="Số điện thoại: (+84) 845 979 383" data-en="Phone: (+84) 845 979 383">Số điện thoại: (+84) 845 979 383</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <i class="fas fa-envelope mt-0.5 text-amber-800/90 w-5 text-center flex-shrink-0" aria-hidden="true"></i>
+              <span data-vi="Email: huynhtranggialinh.work@gmail.com" data-en="Email: huynhtranggialinh.work@gmail.com">Email: huynhtranggialinh.work@gmail.com</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <i class="fab fa-linkedin-in mt-0.5 text-amber-800/90 w-5 text-center flex-shrink-0" aria-hidden="true"></i>
+              <span data-vi="LinkedIn: &lt;a href=&quot;https://linkedin.com/in/linhhuynhtranggia&quot; class=&quot;text-sky-800 underline underline-offset-2 decoration-sky-800/30 hover:decoration-sky-800&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;linkedin.com/in/linhhuynhtranggia&lt;/a&gt;" data-en="LinkedIn: &lt;a href=&quot;https://linkedin.com/in/linhhuynhtranggia&quot; class=&quot;text-sky-800 underline underline-offset-2 decoration-sky-800/30 hover:decoration-sky-800&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;linkedin.com/in/linhhuynhtranggia&lt;/a&gt;">LinkedIn: <a href="https://linkedin.com/in/linhhuynhtranggia" class="text-sky-800 underline underline-offset-2 decoration-sky-800/30 hover:decoration-sky-800" target="_blank" rel="noopener noreferrer">linkedin.com/in/linhhuynhtranggia</a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -524,100 +571,6 @@
     </div>
   </div>
 </div>
-
-<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
-<section id="about" class="py-24 px-6 bg-white">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <!-- Left: Text -->
-      <div class="reveal-left">
-        <p class="section-eyebrow" data-vi="Tóm Tắt Chuyên Môn" data-en="Professional Summary">Tóm Tắt Chuyên Môn</p>
-        <h2 class="section-title text-4xl md:text-5xl mt-2"><span data-vi="Về Tôi &amp;" data-en="About Me &amp;">Về Tôi &amp;</span><br/><span style="color:#1A3260;" data-vi="Mục Tiêu" data-en="Goals">Mục Tiêu</span></h2>
-        <div class="section-divider"></div>
-
-        <div class="space-y-4 text-slate-600 leading-relaxed" style="font-size:0.95rem;">
-          <div class="flex gap-3 items-start">
-            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
-              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
-            </div>
-            <p><span data-vi="Là một " data-en="I am a ">Là một </span><strong class="text-navy-800" style="color:#0F2044;" data-vi="Business Analyst mang tư duy sản phẩm (Product Mindset)" data-en="Business Analyst with a product mindset">Business Analyst mang tư duy sản phẩm (Product Mindset)</strong><span data-vi="." data-en=".">.</span></p>
-          </div>
-          <div class="flex gap-3 items-start">
-            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
-              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
-            </div>
-            <p><span data-vi="Có nền tảng ngành " data-en="My academic background is in ">Có nền tảng ngành </span><strong style="color:#0F2044;" data-vi="Hệ thống thông tin quản lý (MIS)" data-en="Management Information Systems (MIS)">Hệ thống thông tin quản lý (MIS)</strong><span data-vi=" tại UEH." data-en=" at UEH."> tại UEH.</span></p>
-          </div>
-          <div class="flex gap-3 items-start">
-            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
-              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
-            </div>
-            <p><span data-vi="Sở hữu kinh nghiệm thực chiến phân tích và triển khai phần mềm đa lĩnh vực: " data-en="Hands-on experience analyzing and delivering software across multiple domains: ">Sở hữu kinh nghiệm thực chiến phân tích và triển khai phần mềm đa lĩnh vực: </span><strong style="color:#0F2044;" data-vi="EduTech, E-commerce, Service &amp; Retail, AgriTech" data-en="EduTech, E-commerce, Service &amp; Retail, AgriTech">EduTech, E-commerce, Service & Retail, AgriTech</strong><span data-vi="." data-en=".">.</span></p>
-          </div>
-          <div class="flex gap-3 items-start">
-            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
-              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
-            </div>
-            <p><strong style="color:#0F2044;" data-vi="Thế mạnh:" data-en="Strengths:">Thế mạnh:</strong><span data-vi=" Stakeholder Management (Quản lý các bên liên quan), khả năng thích ứng nhanh, chuyển hóa yêu cầu kinh doanh thành giải pháp công nghệ." data-en=" stakeholder management, rapid adaptability, and translating business needs into technology solutions."> Stakeholder Management (Quản lý các bên liên quan), khả năng thích ứng nhanh, chuyển hóa yêu cầu kinh doanh thành giải pháp công nghệ.</span></p>
-          </div>
-          <div class="flex gap-3 items-start">
-            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
-              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
-            </div>
-            <p><strong style="color:#0F2044;" data-vi="Thành thạo:" data-en="Proficient in:">Thành thạo:</strong><span data-vi=" Thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe, và xây dựng tài liệu BA." data-en=" requirements elicitation, process modeling (BPMN/flowcharts), wireframing, and BA documentation."> Thu thập yêu cầu, mô hình hóa quy trình (BPMN/Flowchart), thiết kế Wireframe, và xây dựng tài liệu BA.</span></p>
-          </div>
-          <div class="flex gap-3 items-start">
-            <div class="mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,169,110,0.15);">
-              <i class="fas fa-check text-xs" style="color:#C8A96E;"></i>
-            </div>
-            <p><strong style="color:#0F2044;" data-vi="Năng lực Đóng góp:" data-en="Value I bring:">Năng lực Đóng góp:</strong><span data-vi=" Vận dụng tư duy sản phẩm và phân tích dữ liệu để định hình, tối ưu, chuyển giao giải pháp IT; làm cầu nối giữa Kinh doanh (Business) và Kỹ thuật (Technology)." data-en=" Applying product thinking and data analysis to shape, optimize, and hand off IT solutions—bridging business and technology."> Vận dụng tư duy sản phẩm và phân tích dữ liệu để định hình, tối ưu, chuyển giao giải pháp IT; làm cầu nối giữa Kinh doanh (Business) và Kỹ thuật (Technology).</span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Goal Cards -->
-      <div class="space-y-6 reveal-right delay-200">
-        <!-- Short term -->
-        <div class="card p-8">
-          <div class="flex items-center gap-4 mb-4">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#1A3260,#2952A3);">
-              <i class="fas fa-rocket text-white"></i>
-            </div>
-            <div>
-              <p class="section-eyebrow" style="font-size:0.65rem;" data-vi="Ngắn hạn · 12 Tháng" data-en="Short term · 12 months">Ngắn hạn · 12 Tháng</p>
-              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;" data-vi="Mục Tiêu Gần" data-en="Near-term goal">Mục Tiêu Gần</h3>
-            </div>
-          </div>
-          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;" data-vi="Trở thành BA tại Quý công ty, tích lũy kinh nghiệm qua dự án phát triển phần mềm và thăng tiến." data-en="Join your organization as a Business Analyst, building expertise through software delivery initiatives and growing with the team.">Trở thành BA tại Quý công ty, tích lũy kinh nghiệm qua dự án phát triển phần mềm và thăng tiến.</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 flex gap-2">
-            <span class="tag" data-vi="Dự án Phần mềm" data-en="Software Projects">Dự án Phần mềm</span>
-            <span class="tag" data-vi="Vai trò BA" data-en="BA Role">Vai trò BA</span>
-          </div>
-        </div>
-
-        <!-- Long term -->
-        <div class="card p-8">
-          <div class="flex items-center gap-4 mb-4">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#C8A96E,#d4b87e);">
-              <i class="fas fa-crown" style="color:#0A1628;"></i>
-            </div>
-            <div>
-              <p class="section-eyebrow" style="font-size:0.65rem;color:#C8A96E;" data-vi="Dài hạn · 5 Năm" data-en="Long term · 5 years">Dài hạn · 5 Năm</p>
-              <h3 class="font-semibold text-navy-900" style="color:#0A1628;font-size:1rem;" data-vi="Mục Tiêu Xa" data-en="Long-term vision">Mục Tiêu Xa</h3>
-            </div>
-          </div>
-          <p class="text-slate-600 leading-relaxed" style="font-size:0.9rem;"><span data-vi="Thăng tiến lên " data-en="Grow into a ">Thăng tiến lên </span><strong style="color:#0A1628;" data-vi="Senior BA" data-en="Senior BA">Senior BA</strong><span data-vi=" hoặc " data-en=" or a "> hoặc </span><strong style="color:#0A1628;" data-vi="Product Manager / Project Manager" data-en="Product Manager / Project Manager">Product Manager / Project Manager</strong><span data-vi="." data-en=".">.</span></p>
-          <div class="mt-4 pt-4 border-t border-slate-100 flex gap-2 flex-wrap">
-            <span class="tag" data-vi="Senior BA" data-en="Senior BA">Senior BA</span>
-            <span class="tag" data-vi="Product Manager" data-en="Product Manager">Product Manager</span>
-            <span class="tag" data-vi="Project Manager" data-en="Project Manager">Project Manager</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════════════════════ EDUCATION ═══════════════════════════════ -->
 <section id="education" class="py-24 px-6 bg-alt">
